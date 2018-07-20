@@ -1,0 +1,267 @@
+body{
+    margin:0;
+    font-family:Microsoft YaHei;
+}
+header{
+    position:relative;
+    width:1600px;
+    height:378px;
+    margin:30px auto 0;
+}
+.ul1{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    padding-left:0;
+    width:1075px;
+    height:45px;
+    list-style-type:none;
+
+}
+.ul1>li{
+    float:left;
+    width:268px;
+    height:45px;
+    font-size:24px;
+    text-align: center;
+    line-height:45px;
+    background-color:#215966;
+}
+.ul1>li>a{
+    color:white;
+    text-decoration:none;
+}
+.ul1>li>a:hover{
+    border-bottom:4px solid #f58020;
+}
+.main{
+    margin:30px auto 83px;
+    width:1090px;
+}
+.main::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.left{
+    float:left;
+    width:180px;
+    height:560px;
+    border:1px solid #ccc;
+}
+.ul2{
+    width:180px;
+    height:560px;
+    padding-left:0;
+    margin:0;
+    list-style-type:none;
+    background-color:#f8f8f8;
+}
+.ul2>li{
+    position:relative;
+    width:100%;
+    font-size:16px;
+    text-align: center;
+    line-height:59px;
+    letter-spacing:0px;
+ 
+}
+.ul2>li>a{
+    display:block;
+    margin:0 auto;
+    width:110px;
+    color:#666;
+    text-decoration:none;
+    border-bottom:1px solid #ccc;
+}
+.ul2>li:hover{
+    background-color:#f58020;
+}
+.ul2>li>a:hover{
+    color:white;
+}
+.ul2>li:hover::before{
+   content:"";
+   position:absolute;
+   top:24px;
+   left:30px;
+   width:0px;
+   height:0px;
+   padding:0px;
+   margin:0;
+   display:inline-block;
+   border:7px solid #fff;
+   border-color:transparent transparent transparent white;
+
+}
+.right{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    width:880px;
+    margin:0 0 0 210px;
+}
+.p1{
+    position:relative;
+    width:198px;
+    height:320px;
+    margin-right:20px;
+    margin-bottom:30px;
+    border-radius:4px;
+    border:1px solid #ccc;
+}
+.p1-top{
+    width:198px;
+    height:60px;
+    border-radius:4px 4px 0 0;
+    background-color:#f8f8f8;
+}
+.p1-top>img{
+    float:left;
+    margin:12px 0 0 12px;
+}
+.p1-top>p{
+    float:left;
+    margin:0 0 0 5px;
+    font-size:12px;
+    line-height:60px;
+}
+.vote{
+    float:left;
+    width:70px;
+    height:30px;
+    margin:15px 15px 15px 15px;
+    padding:0px;
+    color:white;
+    background-color:#215966;
+    border-radius:4px;
+}
+#vote1{
+    background-color:#c6c6c6;
+}
+.p1-p{
+    height:195px;
+    width:160px;
+    margin:20px;
+    color:#666;
+    
+}
+.p1-p>p{
+    margin:0;
+    font-size:12px;
+    overflow:hidden;
+    text-overflow:clip;
+}
+.p1-p1{
+    line-height:24px;
+    height:24px;
+}
+.p1-p1>span{
+    font-size:14px;
+}
+.p1-p2{
+    line-height:20px;
+    height:180px;
+}
+.p1-bottom{
+    position:absolute;
+    bottom:0px;
+    height:30px;
+    width:198px;
+    background-color:#f8f8f8;
+    opacity: 0.5;
+    border-radius:0 0 4px 4px;
+}
+.p1-bottom>p{
+    float:left;
+    margin:0px 0 0 21px;
+    height:30px;
+    font-size:12px;
+    line-height:30px;
+    color:#666;
+}
+.p1-bottom>p>span{
+    font-size:14px;
+    color:#333;
+}
+.p1-bottom>div{
+    float:right;
+    height:30px;
+    margin-right:21px;
+    font-size:12px;
+    line-height:30px;
+    color:#666;
+}
+.bottom{
+    display:flex;
+    flex-direction:row-reverse;
+    margin-top:13px;
+}
+.bottom>p{
+    height:32px;
+    text-align: center;
+    line-height:32px;
+    font-size:12px;
+}
+.b-p1,.b-p2{
+    width:32px;
+    margin:0 6px 0 0;
+    border-radius: 1px;
+	border: solid 1px #dedede;
+}
+.b-p3{
+    width:36px;
+    margin:0;
+}
+.b-p4,.b-p5{
+    width:34px;
+    margin:0 0 0 6px;
+    border-radius: 1px;
+	border: solid 1px #dedede;
+}
+.b-p6{
+    width:27px;
+    margin:0px;
+}
+.b-p7{
+    width:34px;
+    margin:0 8px 0 0;
+    border-radius: 1px;
+	border: solid 1px #dedede;
+}
+.b-p8,.b-p9{
+    width:32px;
+    margin:0;
+    border-radius: 1px;
+	border: solid 1px #dedede;
+}
+.b-p10{
+    width:40px;
+    margin:0 6px 0 28px;
+    border-radius: 1px;
+	border: solid 1px #dedede;
+}
+.b-p11{
+    width:36px;
+    margin:0;
+    border-radius: 1px;
+	border: solid 1px #dedede;
+}
+footer{
+    position:relative;
+    margin:0 auto;
+    width: 1600px;
+    height: 218px;
+    text-align: center;
+    color:#ccc;
+    background-color:#000;
+}
+footer>div{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
