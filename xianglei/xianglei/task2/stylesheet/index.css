@@ -1,0 +1,775 @@
+body{
+    width: 1280px;
+    height: 4554px;
+    background-color: white;
+}
+a{
+    text-decoration: none; /*去掉a标签的下划线*/
+    color: #767777;;
+}
+/*导航栏设置*/
+header{
+    height: 55px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+.logo{
+    width: 200px;
+    margin-left: 60px;
+    margin-top: 10px;
+
+}
+.logo img{
+    width: 38px;
+    height: 38px;
+}
+.logotext{
+    font-family: 宋体;
+    font-size: 24px;
+    font-weight: 800;
+    position: relative;
+    top: -10px;
+    left: 0px;
+
+}
+nav ul {
+    list-style-type: none; /*list-style-type:none - 移除列表前小标志*/
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+nav ul li {
+    float: left;
+}
+nav ul li a {
+    display: block;
+    font-family: 黑体;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+nav ul li a span{
+    color: red;
+}
+nav ul li a:hover{
+    border-bottom: 4px red solid;  /*鼠标移上变红色 出现红色下边框*/
+    color: red;
+}
+nav ul li img{
+    width: 14px;
+    height: 17px;
+}
+
+/*第一部分c1*/
+.c1{
+    width: 100%;
+    height: 690px;
+    background: url("../img/6.jpg");
+    background-size: 1280px 690px;
+    font-family: "微软雅黑 Light";
+    color: white;
+}
+.c1_text1{
+    font-size: 60px;
+    position: relative;
+    top:236px;
+    left: 122px;
+}
+.c1_text2{
+    font-size: 21px;
+    position: relative;
+    top: 236px;
+    left: 122px;
+}
+.c1_text3{
+    width: 330px;
+    height: 64px;
+    background-color: #e74f4d;
+    text-align: center;
+    position: relative;
+    top: 290px;
+    left: 122px;
+}
+.c1_text3 a {
+    color: white;
+    font-size: 28px;
+    padding-top: 30px;
+    position: relative;
+    top: 16px;
+}
+.c2{
+    width: 100%;
+    height: 250px;
+    font-family: 微软雅黑;
+    margin-top: 20px;
+}
+.c2_show{
+    width:1280px;
+    border: 0px;
+
+}
+.c2_show tr td{
+    text-align: center;
+    padding: 20px 80px;
+}
+
+.show-right{
+    border-right: 2px  solid #989899; /*显示右边边框*/
+}
+.c2_show tr td img{
+    width: 42px;
+    height: 42px;
+}
+.c3{
+    width: 100%;
+    height: 360px;
+    background-color: #ededec;
+}
+.c3 img{
+    width: 88px;
+    height: 96px;
+    position: relative;
+    top:90px;
+    left: 596px;
+}
+.c3 span{
+    font-family: "微软雅黑 Light";
+    font-size: 50px;
+    color: #a1a1a1;
+    position: relative;
+    top:160px;
+    left: 140px;
+    font-weight: 600;
+}
+.c4{
+    width: 100%;
+    height: 340px;
+    background: url("../img/c4-banner.jpg");
+    filter: brightness(80%);
+}
+.c4_text1{
+    font-family: 微软雅黑;
+    font-size: 22px;
+    color: white;
+    position: relative;
+    top: 40px;
+    left: 520px;
+}
+.c4-line{
+    width: 18px;
+    height: 2px;
+    background-color: white;
+    position: relative;
+    top: 45px;
+    left: 640px;
+}
+
+.c4_text2{
+    font-family: 微软雅黑;
+    font-size: 12px;
+    color: white;
+    position: relative;
+    top: 60px;
+    left: 500px;
+}
+.c4_search{
+    position: relative;
+    top:140px;
+    left: 240px;
+}
+/*
+ *select 的下拉框自定义
+ *首先清除原有样式 apperance：none
+ *然后自定义背景图片 no-repeat
+*/
+select{
+    -moz-appearance: none;
+    width: 200px;
+    height: 30px;
+    background: url("../img/下拉箭头.png") no-repeat;
+    background-position: 174px;
+    border:solid 1px #e74f4d;
+    margin-right: 10px;
+    background-color: white;
+    color:#989899;
+}
+option{
+    background: #ededec;
+}
+select option :hover{
+    background: #e74f4d;
+}
+input{
+    width: 200px;
+    height: 30px;
+    background: #e74f4d;
+    border: 0px;
+}
+
+.c5{
+    width: 1280px;
+    height: 574px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    background-color: #f8f8f8;
+    padding-top: 30px;
+}
+.c5-content{
+    width: 246px;
+    height: 434px;
+    padding: 20px 20px;
+    text-align: center;
+    font-family: "微软雅黑 Light";
+    margin: 20px;
+}
+/*图片的设置*/
+.photo-border{
+    width: 216px;
+    height: 348px;
+    background-color: #ffffff;
+    border: solid 1px #767777 ;
+}
+.photo-bgcolor{
+    width: 196px;
+    height: 324px;
+    background-color: #f9f3f2;
+    position: relative;
+    top:10px;
+    left: 10px;
+}
+#photo1{
+    width: 114px;
+    height: 254px;
+    position: relative;
+    top:70px;
+    left: 20px;
+}
+#photo2{
+    width: 160px;
+    height: 200px;
+    background: url("../img/timg.jpg");
+    background-size: 160px 200px;
+    box-shadow: 0px 30px #cccccc;
+    position: relative;
+    top:50px;
+    left: 10px;
+}
+#photo3{
+    width: 160px;
+    height: 246px;
+    position: relative;
+    top:76px;
+    left: 18px;
+}
+#photo4{
+    width: 164px;
+    height: 194px;
+    position: relative;
+    top: 50px;
+}
+/*文字的设置*/
+.c5-content span{
+    font-family: 黑体;
+    font-size: 20px;
+    position: relative;
+    top:20px
+}
+.c5-content p{
+    font-family: 黑体;
+    color: #767777;
+    font-size: 12px;
+    position: relative;
+    top: 20px;
+}
+span.big-tittle{
+    font-size: 32px;
+    position: relative;
+    top:0px
+}
+p.top-text{
+    position: relative;
+    top: 0px;
+}
+
+.c6{
+    width: 1280px;
+    height: 560px;
+    background-color: white;
+    display: flex;
+    flex-flow: row;
+}
+.c6-right{
+    width: 850px;
+    height: 560px;
+    background: url("../img/c6.jpg");
+    background-size: 850px 560px;
+    color: #e74f4d;
+    text-align: center;
+}
+.c6-h1{
+    font-size: 40px;
+    position: relative;
+    top:140px;
+}
+.c6-xlh{
+    font-size: 140px;
+    position: relative;
+    top:130px
+}
+.c6-p1{
+    font-size: 20px;
+    position: relative;
+    top:100px;
+}
+.c6-p2{
+    position: relative;
+    top:100px;
+}
+/*轮播图的实现*/
+.c6-left{
+    width: 430px;
+    height: 568px;
+}
+.c6-left,.slider-container{
+    margin:100px 0px 0px 0px;
+}
+.slider-container ul,li{list-style-type: none}
+
+/*css public start*/
+.floatfix{*zoom:1}
+.floatfix:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+/* css public end*/
+
+/*slider start*/
+.slider-container{
+    width: 380px;
+    height: 300px;
+    position: relative;
+
+}
+.slider-item + .slider-item{
+    opacity: 0;
+}
+.slider-item{
+    width:100%;
+    position: absolute;
+    animation-timing-function: linear;
+    animation-name: fade;
+    animation-iteration-count: infinite;
+    text-align: center;
+}
+.focus-container{
+    position: absolute;
+    z-index: 7;
+    margin: 0 auto;
+    left:0;
+    right: 0;
+}
+.focus-container li{
+    width:16px;
+    height: 16px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 10px;
+    background-color: #767777;
+}
+.focus-item{
+    width:100%;
+    height: 100%;
+    border-radius: inherit;
+    animation-timing-function: linear;
+    animation-name: fade;
+    animation-iteration-count: infinite;
+}
+.focus-item2,.focus-item3{opacity: 0}
+.focus-container ul{margin-left: 46%}
+/*设置轮播焦点位置*/
+.focus-container{
+    position: relative;
+    top:300px
+
+}
+/*设置当前图片焦点颜色*/
+.focus-item{background: #cccccc}
+/*设置动画，根据实际需要修改秒数*/
+.slider-item,.focus-item{animation-duration: 11s}
+.slider-item1,.focus-item1{animation-delay: -1s}
+.slider-item2,.focus-item2{animation-delay: 3s;}
+.slider-item3,.focus-item3{animation-delay: 7s;}
+@keyframes fade {
+    0%{
+        opacity: 0;
+        z-index: 2;
+    }
+    5%{
+        opacity:1;
+        z-index: 1;
+    }
+    20%{
+        opacity:1;
+        z-index:1;
+    }
+    25%{
+        opacity:0;
+        z-index:0;
+    }
+    100%{
+        opacity:0;
+        z-index:0;
+    }
+}
+/*轮播li里面的内容设置*/
+li .tittle{
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    top:-40px;
+}
+li .tiile-item{
+    font-size: 24px;
+    font-weight: 900;
+    color: #e74f4d;
+    position: relative;
+    top:-40px;
+}
+article{
+    line-height: 20px;
+    color:#a1a1a1;
+}
+.more{
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    border:solid 1px #e74f4d;
+    color: #e74f4d;
+    position: relative;
+    top:100px;
+    left: 40%;
+    text-align: center;
+}
+.more>a{
+    color: #e74f4d;
+    position: relative;
+    top: 5px;
+}
+/*设置图片的高度，请根据具体需要修改百分比，响应式及时修改此值*/
+.slider,.slider-item{
+}
+/*轮播图设置完成*/
+
+.c7{
+    width: 1280px;
+    height: 520px;
+    display: flex;
+    flex-flow: row;
+}
+.c7-con1{
+    width: 425px;
+    height: 520px;
+    background-color: #e74f4d;
+    color: #f8f8f8;
+    text-align: center;
+}
+.c7-con2{
+    width: 425px;
+    height: 520px;
+    color: black;
+    text-align: center;
+}
+.c7-con3{
+    width: 430px;
+    height: 520px;
+    background: url("../img/c7.jpg");
+}
+.c7-tittle{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 40px;
+    position: relative;
+    top: 180px;
+}
+.c7-line1 ,.c7-line2{
+     width: 4px;
+     height: 1px;
+     position: relative;
+     top:120px;
+ }
+.c7-line1{     background-color: white;}
+.c7-line2{     background-color: white;}
+
+.c7-more1 ,.c7-more2{
+    width: 100px;
+    height: 40px;
+    position: relative;
+    top:200px;
+    left: 160px;
+    text-align: center;
+}
+.c7-more1{
+    border: solid 1px #f8f8f8;
+}
+.c7-more2{
+    border: solid 1px #e74f4d;
+}
+.c7-more1>a{
+    color: white;
+    position: relative;
+    top:10px;
+}
+.c7-more2>a{
+    color: #e74f4d;
+    position: relative;
+    top:10px;
+}
+
+.c8{
+    width: 1280px;
+    height: 760px;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+.c8-header{
+    width: 425px;
+    height: 280px;
+    margin: 140px;
+    position: relative;
+    left: 280px;
+}
+.c8-tittle{
+    font-size: 21px;
+    font-weight: 600;
+    color: black;
+}
+.c8-line{
+    width: 30px;
+    height: 2px;
+    position: relative;
+    top: 6px;
+    left: 200px;
+    background-color: #e74f4d;
+}
+.c8-sub-tiitle{
+    font-size: 12px;
+    line-height: 26px;
+    color: #989899;
+    position: relative;
+    top:10px;
+}
+.c8-body{
+    width: 1280px;
+    height: 480px;
+    margin-top: 40px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+.c8-left{
+    width: 360px;
+    height: 360px;
+    padding-right: 30px;
+}
+.c8-right{
+    width: 700px;
+    height: 360px;
+    padding-left: 10px ;
+}
+/*右边的文字只显示一部分，产生折叠效果*/
+.c8-news1,.c8-news2{
+    width: 100%;
+    height: 120px;
+    text-align: left;
+    background: url("../img/more.png") no-repeat;
+    background-size: 16px 12px;
+    background-position: 320px 90px;
+}
+.new-tiitle{
+    font-size: 14px;
+    color: #74706f;
+    font-weight: 600;
+    line-height: 20px;
+}
+.news-abstract{
+    font-size: 12px;
+    color: #a1a1a1;
+    line-height: 20px;
+    padding-top: 30px;
+}
+.news-abstract>a.c8-more1{
+    position: relative;
+    top:16px;
+    left: 246px;
+}
+.news-abstract>a.c8-more2{
+    position: relative;
+    top:16px;
+    left: 220px;
+}
+.c8-news-more{
+    width:100%;
+    height: 120px;
+    text-align: left;
+    background: url("../img/more.png") no-repeat;
+    background-size: 16px 12px;
+    background-position: 320px 50px;
+}
+.c8-news-more>span{
+    font-size: 14px;
+    font-weight: 600;
+    color: #74706f;
+}
+.c8-news-more>a.c8-more3{
+    font-size: 12px;
+    position: relative;
+    top:44px;
+    left: 278px;
+}
+/**
+ *表单部分有点乱  思想是用 input 的 button + text 实现类似 标签 + input效果
+ */
+.c8-from>input.applier1{
+    width: 270px;
+    height: 40px;
+    background-color: #cccccc;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    color: #787474;
+}
+.c8-from>input.applier2{
+    width: 270px;
+    height: 40px;
+    background-color: #cccccc;
+    margin-bottom: 20px;
+    color: #787474;
+}
+.c8-from>input.applier3{
+    width: 246px;
+    height: 40px;
+    background-color: #cccccc;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    color: #787474;
+}
+.c8-from>input.applier4{
+    width: 246px;
+    height: 40px;
+    background-color: #cccccc;
+    margin-bottom: 20px;
+    color: #787474;
+}
+.c8-from>textarea.describ{
+    width: 644px;
+    height: 100px;
+    background-color: #cccccc;
+    color: #787474;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    border: 0px;
+}
+
+/*标签部分的input设置*/
+.c8-from>input.label1{
+    width: 42px;
+    height: 42px;
+    background-color: #cccccc;
+    color: #787474;
+}
+.c8-from>input.label2{
+    width: 66px;
+    height: 42px;
+    background-color: #cccccc;
+    color: #787474;
+}
+.c8-from>input.label3{
+    width: 646px;
+    height: 42px;
+    background-color: #cccccc;
+    color: #787474;
+    text-align: left;
+}
+/*标签设置完成*/
+
+.c8-from>input.sumbit-button{
+    width: 648px;
+    background-color: #cccccc;
+    color: #787474;
+}
+.c9{
+    width: 1280px;
+    height: 350px;
+    background-color: #32353e;
+    color: white;
+    text-align: center;
+}
+.c9-tittle{
+    font-size: 21px;
+    position: relative;
+    top:50px;
+}
+.c9-sub-tittle{
+    font-size: 12px;
+    position: relative;
+    top:60px;
+}
+.c9-emial{
+    width: 432px;
+    height: 42px;
+    background-color: white;
+    color: #a1a1a1;
+    position: relative;
+    top:80px;
+}
+.c9-sumbit{
+    width: 80px;
+    height: 44px;
+    background-color: #6f7178;
+    position: relative;
+    top:80px;
+}
+ ul.social-icon {
+     list-style-type: none; /*list-style-type:none - 移除列表前小标志*/
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+     position: relative;
+     top:100px;
+     left: 580px;
+}
+ ul.social-icon>li  {
+    float: left;
+}
+ul.social-icon>li >img{
+    width: 25px;
+    height: 29px;
+    margin-right: 10px;
+}
+
+footer{
+    width: 1280px;
+    height: 56px;
+    background-color: #2f3038;
+    color: white;
+    display: table;
+}
+.footer-left{
+    position: relative;
+    left: 40px;
+    top: 20px;
+    font-size: 12px;
+}
+.footer-right{
+    position: relative;
+    left: 1140px;
+    top: 0px;
+}
+.footer-right>a{
+    color: white;
+}
