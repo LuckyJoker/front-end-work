@@ -1,0 +1,77 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Task 4</title>
+</head>
+<script type="text/javascript">
+    /*从各个城市中获取信息*/
+    function get() {
+        /*获取source下的li的节点信息*/
+        var data = [];
+        var list = document.getElementById("source").getElementsByTagName("li");
+        for (var i = 0; i < list.length; i++) {
+            var city = list[i].textContent.substring(0, 7);
+            var num = list[i].childNodes[1].textContent;
+            data.push([city, num]);
+        }
+        /*进行排序操作*/
+        /*var datatwo = data.sort(function (x, y) {
+            return y[1] - x[1];
+        })*/
+        /*进行排序操作*/
+        for(var m=0;m<data.length;m++){
+            for(var n=m+1;n<data.length;n++){
+                if(data[m][1]<data[n][1]){
+                   var temp=data[m][1];
+                    data[m][1]=data[n][1];
+                    data[n][1]=temp;
+                }
+            }
+        }
+        /*对排好序的data输出*/
+        var rank = ["第一名", "第二名", "第三名", "第四名", "第五名", "第六名", "第七名"];
+        for (var i = 0; i < data.length; i++) {
+            var li = document.createElement("li");
+            li.innerHTML = rank[i] + ": " + data[i][0];
+            var element = document.getElementById("resort");
+            element.appendChild(li); /*在resort的后面添加新的子节点li*/
+            var b = document.createElement("b");
+            b.innerHTML = data[i][1];
+            li.appendChild(b);    /*在li节点的后面添加新的子节点b*/
+        }
+    }
+</script>
+<body>
+    <ul id="source">
+        <li>北京空气质量：
+            <b>90</b>
+        </li>
+        <li>上海空气质量：
+            <b>70</b>
+        </li>
+        <li>天津空气质量：
+            <b>80</b>
+        </li>
+        <li>广州空气质量：
+            <b>50</b>
+        </li>
+        <li>深圳空气质量：
+            <b>40</b>
+        </li>
+        <li>武汉空气质量：
+            <b>32</b>
+        </li>
+        <li>成都空气质量：
+            <b>90</b>
+        </li>
+    </ul>
+    <ul id="resort">
+        <!-- 
+    <li>第一名：北京空气质量：<b>90</b></li>
+    <li>第二名：北京空气质量：<b>90</b></li>
+    <li>第三名：北京空气质量：<b>90</b></li>
+     -->
+
+    </ul>
+    <button id="sort-btn" onclick="get();">排序</button>
