@@ -1,13 +1,26 @@
 body{
     margin:0;
+    width:100%;
+    height:100%;
     font-family:Microsoft YaHei;
 }
+body::before{
+    content:"";
+    display:block;
+    height:1px;
+    clear:both;
+}
+
 header{
     position:relative;
-    width:1600px;
-    height:378px;
+    width:100%;
+    height:20vw;
+    min-width:750px;
+    background:url(1.png)no-repeat;
+    background-size:100% 100%;
     margin:30px auto 0;
 }
+
 .ul1{
     position:absolute;
     left:0;
@@ -15,14 +28,14 @@ header{
     bottom:0;
     margin:auto;
     padding-left:0;
-    width:1075px;
+    width:67%;
     height:45px;
     list-style-type:none;
 
 }
 .ul1>li{
     float:left;
-    width:268px;
+    width:25%;
     height:45px;
     font-size:24px;
     text-align: center;
@@ -38,7 +51,9 @@ header{
 }
 .main{
     margin:30px auto 83px;
-    width:1090px;
+    width:75%;
+    max-width:1270px;
+    min-width:700px;
 }
 .main::after{
     content:"";
@@ -81,6 +96,7 @@ header{
 }
 .ul2>li>a:hover{
     color:white;
+    border-bottom-color:#f58020;
 }
 .ul2>li:hover::before{
    content:"";
@@ -101,7 +117,6 @@ header{
     flex-direction:row;
     flex-wrap:wrap;
     justify-content:flex-start;
-    width:880px;
     margin:0 0 0 210px;
 }
 .p1{
@@ -131,16 +146,29 @@ header{
 }
 .vote{
     float:left;
+    display:flex;
+    justify-content: center;
+    align-items: center;
     width:70px;
     height:30px;
     margin:15px 15px 15px 15px;
+    text-align: center;
+    cursor: pointer;
     padding:0px;
     color:white;
     background-color:#215966;
     border-radius:4px;
 }
+
+.vote>p{
+    display:inline-block;
+    height:20px;
+    line-height:20px;
+    margin:0;
+}
 #vote1{
     background-color:#c6c6c6;
+    cursor: default;
 }
 .p1-p{
     height:195px;
@@ -189,6 +217,9 @@ header{
 }
 .p1-bottom>div{
     float:right;
+    display:flex;
+    justify-content: center;
+    align-items: center;
     height:30px;
     margin-right:21px;
     font-size:12px;
@@ -199,12 +230,15 @@ header{
     display:flex;
     flex-direction:row-reverse;
     margin-top:13px;
+    margin-right:20%;
 }
-.bottom>p{
+.bottom>a{
     height:32px;
+    text-decoration: none;
     text-align: center;
     line-height:32px;
     font-size:12px;
+    cursor: pointer;
 }
 .b-p1,.b-p2{
     width:32px;
@@ -238,6 +272,9 @@ header{
     border-radius: 1px;
 	border: solid 1px #dedede;
 }
+.b-p8{
+    border-right-color: transparent;
+}
 .b-p10{
     width:40px;
     margin:0 6px 0 28px;
@@ -252,9 +289,11 @@ header{
 }
 footer{
     position:relative;
-    margin:0 auto;
-    width: 1600px;
-    height: 218px;
+    margin:0;
+    width:100%;
+    height: 10vw;
+    min-height:150px;
+    min-width:1000px;
     text-align: center;
     color:#ccc;
     background-color:#000;
