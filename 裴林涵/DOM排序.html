@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>DOM排序</title>
+    <script type="text/javascript">
+    /*1.用js从<ul id="source">中提取出城市以及对应的空气质量
+      2.将数据排序后，在resort列表中显示出来
+      
+      先用documentgetElementBy..方法提取出城市及对于空气质量
+      */
+        window.onload=function() {
+            
+           
+            var btn=document.getElementById('sort-btn');
+            
+            btn.onclick=function(){ 
+
+                var oUl=document.getElementById('source');
+                var aLi=oUl.getElementsByTagName('li');
+                
+                var $aLi=[];
+                for(var i=0;i<aLi.length;i++){
+                    $aLi[i]=aLi[i];
+                   
+                }
+                $aLi.sort(function(li1,li2){
+                    var n1=parseInt(li1.innerHTML.match(/\d{2,}/g));  //提取数字（此正则表达式只能匹配两位数及以上数字）
+				    var n2=parseInt(li2.innerHTML.match(/\d{2,}/g));
+				    return n2-n1; 
+                });
+
+                for(var i=0;i<$aLi.length;i++){
+                    
+	                document.getElementById("resort").innerHTML+='<li>'+$aLi[i].innerHTML+'</li>';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+        <ul id="source">
+                <li>北京空气质量：<b>90</b></li>
+                <li>上海空气质量：<b>70</b></li>
+                <li>天津空气质量：<b>80</b></li>
+                <li>广州空气质量：<b>50</b></li>
+                <li>深圳空气质量：<b>40</b></li>
+                <li>武汉空气质量：<b>32</b></li>
+                <li>成都空气质量：<b>90</b></li>
+        </ul>
+        <ul id="resort">
+               
+        </ul>
+
+        <button id="sort-btn" >排序</button>
+</body>
+</html>
