@@ -1,0 +1,358 @@
+body{
+    margin:0;
+    width:100%;
+    height:100%;
+    font-family:Microsoft YaHei;
+}
+body::before{
+    content:"";
+    display:block;
+    height:1px;
+    clear:both;
+}
+header{
+    position:relative;
+    width:100%;
+    height:20vw;
+    min-width:750px;
+    background:url(1.png)no-repeat;
+    background-size:100% 100%;
+    margin:30px auto 0;
+}
+.ul1{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    padding-left:0;
+    width:67%;
+    height:45px;
+    list-style-type:none;
+
+}
+.ul1>li{
+    float:left;
+    width:25%;
+    height:45px;
+    font-size:24px;
+    text-align: center;
+    line-height:45px;
+    background-color:#215966;
+}
+.ul1>li>a{
+    color:white;
+    text-decoration:none;
+}
+.ul1>li>a:hover{
+    border-bottom:4px solid #f58020;
+}
+.main{
+    margin:0px auto 0px;
+    width:1100px;
+}
+.main::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.top{
+    width:1100px;
+    height:45px;
+    margin:0;
+    font-size:12px;
+    line-height:45px;
+    color:#666;
+    border-bottom:1px solid #ccc;
+}
+.left{
+    float:left;
+    width:222px;
+    margin:20px 48px 0 0;
+}
+.oran1{
+    position:relative;
+    width:220px;
+    height:63px;
+    border:1px solid #f58020;
+
+}
+.oran1>p{
+    margin:0px;
+    height:23px;
+    line-height:23px;
+    
+    border-color:white;
+}
+.oran1-1{
+    position:absolute;
+    left:-1px;
+    bottom:23px;
+    width:170px;
+    font-size:17px;
+    font-weight:bold;
+    border:1px solid white;
+    color:#f58020;
+}
+
+.oran1-2{
+    position:absolute;
+    left:-1px;
+    bottom:-1px;
+    width:170px;
+    font-size:17px;
+    font-weight: bold;
+    border:1px solid white;
+    color:#ccc;
+    text-indent: 23px;
+    text-transform:uppercase;
+
+}
+.oran2{
+    margin:18px 0 0 0;
+    width:222px;
+    height:43px;
+    font-size:12px;
+    line-height:43px;
+    text-indent: 35px;
+    color:white;
+    background-color:#f58020;
+}
+.green{
+    width:222px;
+    height:95px;
+    margin:18px 0 0 0;
+    background-color:#215968;
+}
+.green>img{
+    float:left;
+    margin:8px 15px 7px 8px;
+    
+}
+.green-r{
+    float:right;
+    width:118px;
+}
+.green-1{
+    color:white;
+    font-size:14px;
+    margin:20px 0 0 0;
+}
+.green-2{
+    font-size:10px;
+    color:white;
+    margin:0;
+}
+.green-oran
+{
+    height:18px;
+    width:96px;
+    margin:7px 22px 3px 0;
+    font-size:10px;
+    line-height:18px;
+    text-align: center;
+    color:white;
+    background-color:#f58020;
+}
+.right{
+    float:right;
+    width:828px;
+}
+.right-1{
+    margin:95px auto 0;
+    width:237px;
+    text-align: center;
+}
+.right1-1{
+    margin:0;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    color:#215966;
+}
+.right1-2{
+    margin:0;
+    height:30px;
+    line-height:30px;
+    font-size:18px;
+    font-weight:bold;
+    color:#f58020;
+}
+.right1-3{
+    width:145px;
+    height:30px;
+    margin:0 auto 12px;
+    border-bottom:1px solid #f58020;
+}
+.right-1>img{
+    margin-top:15px;
+}
+.right1-4{
+    width:202px;
+    height:50px;
+    margin:12px auto 0;
+    font-size:14px;
+    line-height:50px;
+    color:#666;
+    border-top:1px solid #999;
+}
+.right-2{
+    margin:100px 0 0 0;
+    height:20px;
+    line-height:20px;
+    font-size:16px;
+    font-weight:bold;
+    color:#f58020;
+
+}
+.right2-1{
+    margin:0px 20px 0 0;
+    display:inline-block;
+    width:310px;
+    height:5px;
+    border-top:1px solid #f58020;
+
+}
+.right2-2{
+    margin:0px 0 0 20px;
+    display:inline-block;
+    width:175px;
+    height:5px;
+    border-top:1px solid #f58020;
+}
+.right-3{
+    margin:0 317px 0 290px;
+    text-align: center;
+    height:63px;
+    line-height:63px;
+    font-size:14px;
+    color:#666;
+}
+.right-4{
+    width:828px;
+    height:473px;
+    padding-top:11px;
+    background-color: #f5eee8;
+}
+
+.right4-1{
+    width: 650px;
+    height: 460px;
+    margin:0px 167px 11px 11px;
+    background-color: #f5eee8;
+	border: solid 1px #ffffff;
+}
+
+.right4-2{
+    position:relative;
+    height:160px;
+    width:160px;
+    margin:60px auto 60px;
+    transform:rotate(-45deg);
+}
+.right4-2>img{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:2;
+}
+.right4-3{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:0;
+    height:0;
+    border:25px solid #f58020;
+    border-color:transparent transparent #f58020 #f58020;
+    z-index:1;
+}
+.right4-4{
+    position:absolute;
+    top:0;
+    right:0;
+    width:0;
+    height:0;
+    border:25px solid #f58020;
+    border-color:#f58020 #f58020 transparent transparent;
+    z-index:1;
+}
+.right4-1>p{
+    margin:0px;
+    font-size:14px;
+    height:25px;
+    line-height:25px;
+    text-align: center;
+}
+.right4-5{
+    font-weight:bold;
+}
+.right-5{
+    width:415px;
+    height:40px;
+    margin:9px 0;
+    border-right:1px solid #f58020;
+}
+.right-6{
+    margin:0 auto 50px;
+    width:830px;
+    height:187px;
+    
+    background-color: #f58020;
+}
+.right-6>p{
+    text-align: center;
+    width:100%;
+    height:70px;
+    margin:0;
+    font-size:20px;
+    font-weight:bold;
+    line-height:70px;
+    color:white;
+}
+.right6-1{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    width: 790px;
+    height: 98px;
+    margin:0 20px 20px 20px;
+	background-color: #ffffff;
+}
+.right6-1>p{
+    margin:0 0 0 21px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    color:#666;
+}
+.right-7{
+    margin:0 auto 89px;
+    width:830px;
+    height:20px;
+    font-size:18px;
+    line-height:20px;
+    text-align: center;
+    color:#666;
+}
+.right-7>a{
+    text-decoration: none;
+    font-size:18px;
+    color:#f58020;
+}
+footer{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    margin:0 auto;
+    width:100%;
+    height: 10vw;
+    min-height:150px;
+    min-width:1000px;
+    color:#ccc;
+    background-color:#000;
+}
+footer>p{
+    margin:0;
+}
