@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+    #show{
+        height:100px;
+        display:flex;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+    }
+    #show>div{
+        padding:5px;
+    }
+   
+    #input_num{
+        width:100px;
+        height:100px;
+    }
+    </style>
+</head>
+<body>
+    <!--输入区域-->
+    <div class="input_area">
+        <textarea id="input_num" wrap="hard"></textarea>
+        <!--四个按钮-->
+        <button type="button" onclick="insert_left()">左侧入</button>
+        <button type="button" onclick="remove_left()">左侧出</button>
+        <button type="button" onclick="insert_right()">右侧入</button>
+        <button type="button" onclick="remove_right()">右侧出</button>
+        <button type="button" onclick="search()">查询</button>
+    </div>
+    <!--显示区域-->
+    <div id="show"></div>
+    <!--js文件-->
+    <script type="text/javascript">
+        //右侧入函数
+        function insert_right(){
+            //num内存储利用split函数分离好的字符串
+            var num = document.getElementById("input_num").value.split(/[,\s\r、，]/);//采用正则表达式
+            var d = document.getElementById("show");
+           
+            for(var i = 0;i < num.length;i++){
+                //创建新的div
+                var newD = document.createElement("div");
+                //以下为div设置属性
+                newD.className = "new";
+                newD.style.height =30+"px";
+                newD.style.marginRight = 10 +"px";
+                newD.style.color = "white";
+                newD.style.display = "inline-block";
+                newD.style.backgroundColor = "rgb(255,0,0)";
+                newD.style.textAlign = "center";
+                //添加元素
+                newD.innerHTML = num[i];
+                d.appendChild(newD);
+            }
+            
+            
+        }
+        //左侧插入
+        function insert_left(){
+            //num内存储利用split函数分离好的字符串
+            var num = document.getElementById("input_num").value.split(/[,\s\r、，]/);
+            var d = document.getElementById("show");
+             /*从最后一个开始插入，使输入顺序仍然与插入顺序视觉效果相同*/
+            for(var i = num.length-1;i >= 0;i--){
+                //创建新的div
+                var newD = document.createElement("div");
+                //以下为div设置属性
+                newD.className = "new";
+                newD.style.height =30+"px";
+                newD.style.marginRight = 10 +"px";
+                newD.style.color = "white";
+                newD.style.display = "inline-block";
+                newD.style.backgroundColor = "rgb(255,0,0)";
+                newD.style.textAlign = "center";
+                //添加元素
+                newD.innerHTML = num[i];
+                d.insertBefore(newD,d.firstChild);
+            }
+           
+        
+        }
+       
+       
+    
+        //从左侧删除
+        function remove_left(){
+            var d = document.getElementById("show");
+            //判断队列是否已为空
+            if(d.innerHTML == ""){
+                alert("队列已为空");
+                return;
+            }
+            //不为空，则输出并删除
+            alert(d.firstChild.innerHTML);
+            d.removeChild(d.firstChild);
+        }
+        //从右侧删除
+        function remove_right(){
+            var d = document.getElementById("show");
+             //判断队列是否已为空
+            if(d.innerHTML == ""){
+                alert("队列已为空");
+                return;
+            }
+             //不为空，则输出并删除
+            alert(d.lastChild.innerHTML)
+            d.removeChild(d.lastChild);
+         
+        }
+        //删除被点击的队列元素
+        function del(){
+            var j = document.getElementById("show");
+         
+                document.getElementById("show").onclick = function(e){
+                e = e||window.event;
+                var t = e.target || e.srcElement;
+                if(t.className == "new"){
+                    j.removeChild(t);
+               
+                }
+               }
+           
+        }
+        del();
+        //查询函数
+        function search(){
+            var show = document.getElementById("show");
+            var list = show.getElementsByClassName("new");
+            var word = document.getElementById("input_num").value; //获得需要查询的字符串
+            //遍历各个元素
+            for(var i = 0;i < list.length;i++){
+                list[i].style.color="white";
+                if(list[i].innerHTML.search(word)!=-1){
+                    list[i].style.color="green";   //若有相符的，则字体颜色变为绿色
+                }
+            }
+        }
+        </script>
+    
+</body>
+</html>
