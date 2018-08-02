@@ -1,0 +1,246 @@
+*{
+    padding:0;
+    margin:0 auto;
+}
+body{
+    font-size:12px;
+    font-family:"Microsoft Yahei";
+}
+/*整体样式*/
+.all{
+    position: relative;
+    width:100%;
+    height:1835px; 
+    color:#666;
+    /*all与其第一个子元素发生了内边距重叠导致其溢出父元素 加overflow：hidden来解决问题 是all包括子元素外边距部分*/
+    overflow: hidden;  
+}
+/*头部图片和导航栏样式*/
+header{
+    position: relative;
+    width: 100%;
+    height: 378px;
+    margin-top:33px;
+    background-color: #215966;
+   
+}
+.picture{
+    width:100%;
+    height:330px;
+    background:#215966 url("head.jpg") no-repeat center;
+}
+.top{ 
+    position: relative;
+    width:100%;
+    height:48px;
+}
+.top>ul{
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    width:80%;
+    text-align: center;
+}
+.top>ul>li{
+    float:left;
+    width:25%;
+    height:40px;
+    line-height:40px;
+    font-size:16px;
+}
+li>a{
+    padding-bottom: 4px;
+    color:#fff;
+    text-decoration: none;
+}
+/*鼠标点击触动边框*/
+a:hover{
+   border-bottom: 5px solid #f58020;
+   border-radius: 2px;
+   cursor: pointer;   /*使鼠标触动时出现手指的样式*/
+}
+/*中间两栏利用float来布局*/
+.middle{
+    max-width:1070px;
+    min-width:400px;  /*设置最大1070最小400*/
+    background-color:#fff;
+    position:relative;
+    margin:30px auto;
+}
+/*中间两栏布局左边部分实现*/
+.middle-left{
+    float:left;
+    width: 178px;
+	height: 558px;
+	background-color: #f8f8f8;
+	border: solid 1px #cccccc;
+}
+.middle-left>li{
+    width:110px;
+    margin:0 auto;
+    padding-top:16px;
+    font-size:16px;
+    color:#666;
+    border-bottom:1px solid #ccc;
+    padding:18px 0;
+    text-align: center;
+    list-style: none;
+}
+/*中间左边鼠标触动事件*/
+.middle-left>li:hover{
+    width:178px;
+    background-color: #f58020;
+    color:#fff;
+}
+/*三角符号样式*/
+.middle-left > li > a:link {
+    text-decoration: none;
+    color: inherit;
+}
+.middle-left > li > a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+/*三角符号样式*/
+.shape:hover {
+    position: relative;
+}
+.shape:hover::before {
+    display: block;
+    content: '';
+	position: absolute;
+	top: 26px;
+	left: 32px;
+	width: 0;
+	height: 0;
+	border: solid 5px;
+	border-color: transparent transparent transparent #f8f8f8;
+}
+ /*中间两栏布局右边样式*/
+.middle-right{
+    display:flex;
+  flex-wrap:wrap;
+  margin-left:200px;
+}
+.box{
+    position: relative;
+    width: 200px;
+	height: 320px;
+	border-radius: 4px;
+    border: solid 1px #cccccc;
+    overflow: hidden;
+    margin-bottom:30px;
+}
+.right-top{
+    width: 198px;
+	height: 60px;
+	background-color: #f8f8f8;
+}
+.right-top>img{
+    float:left;
+    padding:13px 0 13px 13px;
+}
+.right-top>span{
+    margin-left:6px;
+    line-height: 60px;
+}
+.right-top>button{
+    float:right;
+    width:70px;
+    height:30px;
+    margin-top: 15px;
+    margin-right:15px;
+    border-radius: 6px;
+    background-color: #215966;
+    color:#fff;
+    border:none;
+    cursor: pointer;   /*使鼠标触动时出现手指的样式*/
+}
+#only{
+    background-color: #c6c6c6;
+    color:#fff;
+}
+.box>p{
+    line-height:20px;
+    color:#666;
+    padding:17px 21px 0 19px;
+}
+.box>p>span{
+    font-size:16px;
+    line-height: 24px;
+}
+/*结尾样式*/
+.right-last{
+   position: absolute;
+   bottom:0;
+    margin-top:7px;
+    width:196px;
+    height:28px;
+    background-color: #fbfbfb;
+    border:solid 1px #fff;
+    border-radius: 4px;
+}
+.right-last>span{
+    font-size:14px;
+    line-height: 30px;
+    padding-left:21px;
+}
+.onely>img{
+    float:left;
+    margin-top:7px;
+   margin-right:5px;
+}
+.onely{
+    float:right;
+    padding-right:21px;
+}
+/*右边整体下面的翻页栏样式*/
+.changepage
+{
+    width:100%;
+    height:50px;
+    margin-top:30px;
+
+}
+.changepage>a{
+    display: block;
+    float:right;
+    width:32px;
+    height:32px;
+    border:1px solid #dedede;
+    text-align: center;
+    line-height: 32px;
+    margin-left:6px;
+    cursor: pointer;  /*出现手指样式*/
+}
+#space{
+    border:none;
+    text-align:center;
+    line-height: 32px;
+    cursor:default;
+}
+#special{
+    width:40px;
+    margin-left:28px;
+    cursor:default;
+}
+#red{
+    border:none;
+    color:red;
+}
+/*页尾样式*/
+footer{
+    position: absolute;
+    bottom:0;
+    width:100%;
+    height:158px;
+    background-color: #303030;
+    padding-top:60px;
+}
+footer>p{
+    color:#fff;
+    font-size:16px;
+    text-align:center;
+    margin:10px;
+}
