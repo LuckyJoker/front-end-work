@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+    /*两个按钮位置设置*/
+    .main{
+        display:flex;
+        width:500px;
+        margin:auto;
+        justify-content: space-between;
+        font-size:16px;
+    }
+    /*城市下拉框*/
+    #city{
+        display:block;
+        width:200px;
+    }
+    /*高校城市下拉框*/
+    #college{
+        display:block;
+        width:250px;
+    }
+    /*两个表单*/
+    #student-form,#no-student-form{
+        display:none;/*先都设置为none*/
+        width:500px;
+        margin:50px auto;
+        justify-content: space-between;
+        font-size:16px;
+        
+    }
+    /*表单span设置*/
+    #student-form,#no-student-form>span{
+        font-weight:bold;
+        line-height:30px;
+    }
+    #student-form>select{
+        height:30px;
+        border-radius: 5px;
+        border:1px solid #ccc;
+    }
+    /*输入框设置*/
+    #no-student-form>input{
+        width:400px;
+        height:30px;
+        border-radius: 5px;
+        border:1px solid #ccc;
+    }
+    </style>
+    
+</head>
+<body>
+    <form class="main">
+        <!--在校生-->
+        <label><input type="radio" id="student" onclick="student_info()" name="role" value="在校生"/>在校生</label>
+        <!--非在校生-->
+        <label><input type="radio" id="no-student" onclick="unstudent_info()" name="role" value="非在校生"/>非在校生</label>
+    </form>
+    <div id="show">
+        <!--在校生表单-->
+        <form id = "student-form">
+            <span>学校</span>
+            <!--城市下拉菜单-->
+            <select id="city" onchange="changePro()">
+                <option value="--" selected></option>
+                <option value="北京">北京</option>
+                <option value="武汉">武汉</option>
+                <option value="南京">南京</option>
+            </select>
+            <!--高校下拉菜单-->
+            <select id="college">
+                <option value="--请选择城市与学校--" selected>--请选择城市与学校--</option>
+            </select>
+        </form>
+        <!--非在校生表单-->
+        <form id = "no-student-form">
+            <span>就业单位</span>
+            <!--输入框-->
+            <input type="text"/>
+    </div>
+    <script type="text/javascript">
+        //点击在校生按钮
+        function student_info(){
+            var student = document.getElementById("student-form");
+            var unstudent = document.getElementById("no-student-form");
+            student.style.display = "flex";//在校生表单显示
+            unstudent.style.display = "none";//非在校生表单不显示
+        }
+        //点击非在校生表单
+        function unstudent_info(){
+            var student = document.getElementById("student-form");
+            var unstudent = document.getElementById("no-student-form");
+            student.style.display = "none";//在校生表单不显示
+            unstudent.style.display = "flex";//非在校生表单显示
+        }
+        //改变城市下拉框选项实现的联动
+        function changePro(){
+            var city = document.getElementById("city");
+            var cities = city.getElementsByTagName("option");
+            var opt = "";
+            var college = document.getElementById("college");
+            //设置四个对应的显示内容
+            var colleges = [['--请选择城市与学校--'],['清华大学','北京大学','北京航天航空大学'],['武汉大学','华中科技大学','武汉理工大学','华中师范大学'],['南京大学','南京理工大学']];
+            //当下拉框value与cities数组里相应位置内容一样，则设置高校对应下拉框的innerHTML
+            for(var i = 0;i < colleges.length;i++){
+                  if(city.value == cities[i].value){
+                      for(var j = 0;j < colleges[i].length;j++){
+                          opt = opt + '<option value="' + colleges[i][j] + '">' + colleges[i][j] +'</option>';
+                      }
+                  }
+                 college.innerHTML = opt;
+            }
+        }
+        </script>
+</body>
+</html>
