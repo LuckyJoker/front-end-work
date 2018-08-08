@@ -1,0 +1,526 @@
+body{
+    margin:0;
+    font-family: MicrosoftYaHei
+}
+header{
+    height:200px;
+    background-image: url('底图.png');
+    background-repeat: no-repeat; 
+    background-size: cover;
+    
+    position: relative;
+}
+.logo{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.serach{
+    float:right;
+    
+}
+nav{
+    width: 1000px;
+	height: 50px;
+    background-color: rgba(0,0,0,0.3);
+	border-radius: 8px 8px 0px 0px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+nav ul{
+    list-style: none;
+    white-space: nowrap;
+    
+}
+nav ul li{
+    height: 30px;
+    display: inline-block;
+    padding:0 30px;
+    margin:-3px;
+    border-left: 1px solid #3c83b9;
+    border-right: 1px solid #0e7a4e;
+}
+nav ul #index{
+    border-left: 0px;
+
+}
+nav ul #law{
+    border-right: 0px;
+}
+nav ul li>a{
+    text-decoration: none;
+    color:#fff;
+    font-size: 18px;
+}   
+#index ！important{
+    color:#57c3ff;
+}
+/*--------------------分界线-----------------------*/
+/*---------------------main-----------------------*/
+main{
+    width:1000px;
+    margin:20px auto;
+}
+.container{
+    width:100%;
+    display: grid;
+    grid-template-columns: 400px 7fr 7fr;
+    grid-template-rows: 300px 320px 260px;
+    grid-gap: 20px;
+    grid-template-areas: 
+    "pic units units"
+    "notice tec_service tec_service"
+    "trends standard policy"
+
+}
+.pic{   
+    grid-area: pic;
+    position: relative;
+}
+.pic .title{
+    width:385px;
+    height: 36px;
+    background-color: rgba(0,0,0,0.6);
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    padding-left: 15px;
+}
+.pic .title p{
+    font-size: 14px;
+    
+    color:#fff;
+}
+.pic .title .dots{
+    position: absolute;
+    right: 14px;
+    top:14px;
+}
+
+
+.units{
+    grid-area: units;
+    border: solid 1px #cccccc;
+}
+.units .title{
+    width: 100%;
+    height: 36px;
+    background-color: #ecf7fe;
+	border-bottom: solid 1px #cccccc;
+
+}
+.units .title>img{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.units .title a{
+    text-decoration: none;
+    color:#999;
+
+    float: right;
+    margin-right:12px;
+}
+.units .title span{
+    color: #0e4a7e;
+    font-size: 16px;
+    line-height: 36px;
+}
+.units ._units{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    margin-top:37px;
+    margin-left:16px;
+}
+.units .units_logo{
+    width: 124px;
+    height: 124px;
+    background-color: rgba(197,208,217,0.4);
+    text-align: center;
+    
+    
+}
+.units .units_logo>img{
+    margin-top:17px;
+}
+.units .units_logo span{
+    font-size: 14px;
+    color: #0e4a7e;
+    display: block;
+    
+}
+
+.units .unit p{
+    font-size: 14px;
+    color:#999;
+}
+
+.notice{
+    grid-area: notice;
+}
+.notice .title{
+    width: 100%;
+    height: 36px;
+    border-top: 1px solid #2da9df;
+	border-bottom: solid 1px #cccccc;
+
+}
+.notice .title>img{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.notice .title a{
+    text-decoration: none;
+    color:#999;
+
+    float: right;
+    margin-right:12px;
+}
+.notice .title span{
+    color: #3da4dd;
+    font-size: 16px;
+    line-height: 36px;
+}
+.notice .top_notice{
+    margin:20px;
+}
+.notice .top_notice>img{
+    float: left;
+    margin-right: 20px;
+}
+.notice .top_notice h3{
+    font-size: 16px;
+    color: #0e4a7e;
+    text-align: left;
+}
+.notice .top_notice p{
+    font-size: 14px;
+    color: #999;
+    text-align: left;
+}
+.notice .top_notice a{
+    text-decoration: none;
+    color: #3da4dd;
+}
+.notice .list{
+   margin:0 18px 0 20px;
+
+}
+.notice .list ul{
+    margin: 0;
+    padding: 0;
+    list-style-position:inside ;
+}
+.notice .list li a,.notice .list li span{
+    text-decoration: none;
+    font-size: 14px;
+    color:#999;
+}
+.notice .list li span{
+    float: right;
+}
+.tec_service{
+    grid-area: tec_service;
+    border:1px solid #ccc;
+}
+.tec_service .title{
+    width: 100%;
+    height: 36px;
+    border-top: 1px solid #2da9df;
+	border-bottom: solid 1px #cccccc;
+
+}
+.tec_service .title>img{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.tec_service .title a{
+    text-decoration: none;
+    color:#999;
+
+    float: right;
+    margin-right:12px;
+}
+.tec_service .title span{
+    color: #3da4dd;
+    font-size: 16px;
+    line-height: 36px;
+}
+.tec_service .opt{
+    width: 100%;
+    height:36px;
+    
+    background-color: #3da4dd;
+    position: relative;
+}
+.tec_service .opt ul{
+    list-style: none;
+    font-size: 0;
+    text-align: center;
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    
+}
+.tec_service .opt li{
+    width: 100px;
+    height: 35px;
+    display: inline-block;
+    font-size: 14px;
+    color:#fff;
+    border-right: 1px solid #fff;
+    cursor: pointer;
+    line-height: 35px;
+}
+.tec_service .opt .lt,.tec_service .opt .gt{
+    height: 36px;
+    width: 38px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 35px;
+    color:#fff;
+    cursor: pointer;
+    position: absolute;
+}
+.tec_service .opt .lt{
+    left: 0;
+    top: 0;
+}
+.tec_service .opt .gt{
+    right: 0;
+    top: 0;
+}
+.tec_service .opt li:hover,.tec_service .opt #serve{
+    color:#2da9df;
+    background: #fff;
+    position: relative;
+    top:2px;
+}
+.tec_service .content{
+    width: 525px;
+    height: 203px;
+    margin:10px 28px 35px 28px;
+    position: relative;
+}
+.tec_service .content>img{
+    position: absolute;
+    left: 0;
+    top:14px;
+}
+.tec_service .content>p{
+    width: 298px;
+    text-align: left;
+    font-size: 14px;
+    color:#999;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.tec_service .content a{
+    text-decoration:none;
+    font-size: 12px;
+    color:#3da4dd;
+}
+.tec_service .content>ul{
+    list-style: none;
+    font-size: 14px;
+    color:#999;
+    
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.tec_service .content li{
+    margin:10px;
+    cursor: pointer;
+}
+.trends{
+    grid-area: trends;
+    border: 1px solid #ccc;
+}
+.trends .title{
+    height: 36px;
+    background-color: #ecf7fe;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 13px;
+    border-bottom: 1px solid #ccc;
+}
+.trends .title span{
+    font-size: 16px;
+    color: #0e4a7e;
+}
+.trends .title a{
+    text-decoration:none;
+    color:#999;
+}
+.trends .dynamic{
+    margin-top:32px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.trends .dynamic p{
+    font-size: 16px;
+    color:#999;
+}
+.trends .dynamic a{
+    text-decoration: none;
+    font-size: 12px;
+    color:#3da4dd;  
+}
+.standard{
+    grid-area: standard;
+    border: solid 1px #cccccc;
+}
+.standard .title{
+    height: 36px;
+    padding-left: 20px;
+    padding-right: 12px;
+    background-color: #3da4dd;
+    
+}
+.standard .title span{
+    font-size: 16px;
+    color: #fff;
+    line-height: 36px;
+}
+.standard .title a{
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    line-height: 36px;
+    float: right;
+}
+.standard ul{
+    
+    list-style: none;
+    margin-left:25px;
+    padding: 0;
+}
+.standard li{
+    margin-top:20px;
+
+}
+.standard li>a{
+    text-decoration: none;
+    font-size: 14px;
+    color:#999;
+}
+.policy{
+    grid-area: policy;
+    border: solid 1px #cccccc;
+}
+.policy .title{
+    height: 36px;
+    padding-left: 20px;
+    padding-right: 12px;
+    background-color: #3da4dd;
+    
+}
+.policy .title span{
+    font-size: 16px;
+    color: #fff;
+    line-height: 36px;
+}
+.policy .title a{
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    line-height: 36px;
+    float: right;
+}
+.policy ul{
+    
+    list-style: none;
+    margin-left:25px;
+    padding: 0;
+}
+.policy li{
+    margin-top:20px;
+
+}
+.policy li>a{
+    text-decoration: none;
+    font-size: 14px;
+    color:#999;
+}
+/*---------------------分界线----------------*/
+/*---------------------links----------------*/
+.links{
+    height:72px;
+    width: 100%;
+    border:1px solid #ccc;
+    margin-top: 65px;
+    text-align: center;
+    position: relative;
+    display: table;
+}
+.links .link{
+    width: 192px;
+    height: 16px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    position: absolute;
+    top:-8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    font-size: 16px;
+    color:#999;
+    text-align: center;
+}
+.links a{
+    display: table-cell;
+    vertical-align: middle;
+    text-decoration:none;
+    color:#999;
+}
+/*---------------------分界线----------------*/
+/*---------------------footer----------------*/
+footer{
+    width:100%;
+    height:207px;
+}
+footer .lianxi{
+        width:100%;
+        height: 80px;
+        
+        background-image:url('tu.png'); 
+        background-repeat: repeat-x;
+        text-align: center;
+}
+footer .lianxi a{
+    text-decoration:none;
+    color:#fff;
+    font-size: 14px;
+    line-height: 80px;
+}
+footer .host{
+    
+    height: 127px;
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+}
+footer .host img{
+    display: table-cell;
+    vertical-align: middle;
+    margin: 20px;
+}
+footer .host p{
+    font-size: 14px;
+    color:#999;
+    vertical-align: middle;
+    display: table-cell;
+}
