@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="day23.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <!--导航栏样式（其中设置鼠标滑过变成蓝色-->
+        <nav>
+            <ul class="nav-ul">
+                <li class="li1" id="one">
+                    <a href="#">首页</a>
+                </li>
+                <li class="li1">
+                    <a href="#">中心工作</a>
+                </li>
+                <li class="li1">
+                    <a href="#">试点工作</a>
+                </li>
+                <li class="li1">
+                    <a href="#">技术服务</a>
+                </li>
+                <li class="li1">
+                    <a href="#">标准规范</a>
+                </li>
+                <li class="li1">
+                    <a href="#">行业动态</a>
+                </li>
+                <li class="li1" id="last">
+                    <a href="#">政策法规</a>
+                </li>
+            </ul>
+            <img class="search" src="picture2.png" alt="搜索图标">
+        </nav>
+    </header>
+    <!--中间部分主要布局利用网格布局分为三行两列 从每一行开始-->
+    <!--每个布局中导航中更多和详情可以点击-->
+    <div class="main">
+        <!--第一行第一列布局-->
+        <div class="top-left">
+            <img src="toleft.jpg" alt="会见开会图片">
+            <div class="top-text2">
+                <span>国家知识资源中心在京会见摩洛哥工...</span>
+            </div>
+            <div class="block">
+                <span></span>
+                <span id="blue"></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!--第一行第二列布局-->
+        <div class="top-right">
+            <!--第一行第二列上面导航-->
+            <div class="right-top">
+                <img src="picture7.png" alt="图标1">
+                <span>试点单位</span>
+                <a href="#">更多
+                    <span id="tim"> ></span>
+                </a>
+            </div>
+            <div class="right-bottom">
+                <img src="picture3.png" alt="中国科学院图标">
+                <span class="img-text">中国科学院</span>
+            </div>
+            <div class="right-bottom">
+                <img src="picture4.png" alt="中国科学院图标">
+                <span class="img-text">国家知识产权局</span>
+            </div>
+            <div class="right-bottom">
+                <img src="picture5.png" alt="中国科学院图标">
+                <span class="img-text">国家版权局</span>
+            </div>
+            <div class="right-bottom2">
+                <img src="picture6.png" alt="中国科学院图标">
+                <span class="img-text">中国新闻社</span>
+            </div>
+            <p class="top-text">伴着喜迎新年的乐章，新的一年向我们走来。</p>
+            <p class="top-text">伴着喜迎新年的乐章，新的一年向我们走来。</p>
+            <p class="top-text">伴着喜迎新年的乐章，新的一年向我们走来。</p>
+            <p class="top-text">伴着喜迎新年的乐章，新的一年向我们走来。</p>
+        </div>
+        <!--第二行第一列布局-->
+        <div class="middle-left">
+            <!--第二行第一列-顶部部分布局-->
+            <div class="middle-left-top">
+                <img src="picture8.png" alt="图标2">
+                <span>通知公告 </span>
+                <a href="#">更多
+                    <span id="tim"> ></span>
+                </a>
+            </div>
+            <!--第二行第一列-中间部分布局-->
+            <div class="middle-left-middle">
+                <img src="middle.png" alt="开会图片">
+                <p class="title">
+                    <a href="#" id="set">出版“3·15”质检活动</a>
+                </p>
+                <p class="middle-text">为了便于广大航运企业和航运管理单位了解和掌握长江大桥和船闸的.....
+                    <span id="detail">「详情」</span>
+                </p>
+            </div>
+            <!--第二行第一列-尾部部分布局-->
+            <div class="middle-left-last">
+                <ul>
+                    <li class="li2">
+                        <a href="#">中央综治办"第二课题调研组"调研江西...</a>
+                        <span>02-29</span>
+                    </li>
+                    <li class="li2">
+                        <a href="#">中央综治办"第二课题调研组"调研江西...</a>
+                        <span>02-29</span>
+                    </li>
+                    <li class="li2">
+                        <a href="#">中央综治办"第二课题调研组"调研江西...</a>
+                        <span>02-29</span>
+                    </li>
+                    <li class="li2">
+                        <a href="#">中央综治办"第二课题调研组"调研江西...</a>
+                        <span>02-29</span>
+                    </li>
+                    <li class="li2">
+                        <a href="#" id="red-text">中央综治办"第二课题调研组"调研江西...</a>
+                        <span>02-29</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--第二行第二列布局-->
+        <div class="middle-right">
+            <!--第二行第二列-顶部部分布局-->
+            <div class="middle-right-top">
+                <img src="picture9.png" alt="图标3">
+                <span>技术服务 </span>
+                <a href="#">更多
+                    <span id="tim"> ></span>
+                </a>
+            </div>
+            <!--第二行第二列-中间导航布局-->
+            <div class="middle-right-middle">
+                <ul class="ul3">
+                    <span>
+                        <</span>
+                            <li class="li3 li3-1">产业服务</li>
+                            <li class="li3">在线培训</li>
+                            <li class="li3">知识园地</li>
+                            <li class="li3">公益讲座</li>
+                            <li class="li3">支持单位</li>
+                            <span>></span>
+                </ul>
+            </div>
+            <!--第二行第二列-下方左边内容布局-->
+            <div class="middle-right-last-left">
+                <img src="picture13.png" alt="工业服务">
+                <p>读者可以通过当面、信函、电话、传真、电子邮件等多种方式提出专利文献信息委托需求。在接到用户信息后即时做出答复文献信息发送可以选用大宗挂号、特快专递......
+                    <span id="detail">「详情」</span>
+                </p>
+            </div>
+            <!--第二行第二列-下方右边内容布局-->
+            <div class="middle-right-last-right">
+                <ul class="ul4">
+                    <li>
+                        <a href="#">互联网专利检索系统使用指南 </a>
+                    </li>
+                    <li>
+                        <a href="#">互联网专利检索系统使用指南 </a>
+                    </li>
+                    <li>
+                        <a href="#">互联网专利检索系统使用指南 </a>
+                    </li>
+                    <li>
+                        <a href="#">互联网专利检索系统使用指南 </a>
+                    </li>
+                    <li>
+                        <a href="#">互联网专利检索系统使用指南 </a>
+                    </li>
+                    <li>
+                        <a href="#">互联网专利检索系统使用指南 </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--第三行第一列布局-->
+        <div class="last-left">
+            <!--第三行第一列-顶部布局-->
+            <div class="right-top">
+                <img src="picture10.png" alt="图标4">
+                <span>行业动态</span>
+                <a href="#">更多
+                    <span id="tim"> ></span>
+                </a>
+            </div>
+            <div class="img1">
+                <img src="lastleft1.png" alt="国家知识产权局长">
+                <p>国家知识产权局长在部长通道......
+                    <span id="detail">「详情」</span>
+                </p>
+            </div>
+            <div class="img1">
+                <img src="lastleft2.png" alt="国家知识产权局长">
+                <p>国家知识产权局长在部长通道......
+                    <span id="detail">「详情」</span>
+                </p>
+            </div>
+        </div>
+        <!--第三行第二列布局-->
+        <div class="last-right">
+            <!--第三行第二列左边部分布局-->
+            <div class="last-right-left">
+                <div class="last-top">
+                    <img src="picture11.png" alt="图标5">
+                    <span>标准规范</span>
+                    <a href="#">更多 ></a>
+                </div>
+                <ul class="ul5">
+                    <li>
+                        <a href="#">2016年国际出版业发展态势解析...</a>
+                    </li>
+                    <li>
+                        <a href="#">2016年国际出版业发展态势解析...</a>
+                    </li>
+                    <li>
+                        <a href="#">2016年国际出版业发展态势解析...</a>
+                    </li>
+                    <li>
+                        <a href="#">2016年国际出版业发展态势解析...</a>
+                    </li>
+                    <li>
+                        <a href="#">2016年国际出版业发展态势解析...</a>
+                    </li>
+                    <li>
+                        <a href="#">2016年国际出版业发展态势解析...</a>
+                    </li>
+                </ul>
+            </div>
+            <!--第三行第二列布局-右边布局-->
+            <div class="last-right-right">
+                <div class="last-top">
+                    <img src="picture12.png" alt="图标6">
+                    <span>政策法规</span>
+                    <a href="#">更多 ></a>
+                </div>
+                <ul class="ul5">
+                    <li>
+                        <a href="#">2016年国际出版业发展态势解析...</a>
+                    </li>
+                    <li>
+                        <a href="#">2016年国际出版业发展态势解析...</a>
+                    </li>
+                    <li>
+                        <a href="#">2016年国际出版业发展态势解析...</a>
+                    </li>
+                    <li>
+                        <a href="#">2016年国际出版业发展态势解析...</a>
+                    </li>
+                    <li>
+                        <a href="#">2016年国际出版业发展态势解析...</a>
+                    </li>
+                    <li>
+                        <a href="#">2016年国际出版业发展态势解析...</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--尾部-友情链接部分-->
+    <div class="footer-all">
+        <p class="border-font">友情链接</p>
+        <p class="footer-text">
+            <span class="span3">
+                <a href="#">中华人民共和国国家新闻出版广电总局</a>
+            </span>
+            <span class="span3">
+                <a href="#">中国新闻出版研究院</a>
+            </span>
+            <span class="span3">
+                <a href="#">中华人民共和国国家版权局</a>
+            </span>
+            <span class="span3">
+                <a href="#">新闻出版重大科技工程网</a>
+            </span>
+        </p>
+    </div>
+    <!--尾部-导航链接部分-->
+    <div class="footer-nav">
+        <span>联系我们 </span> |
+        <span> 网站地图 </span> |
+        <span> 编辑人员</span> |
+        <span> 版权声明 </span> |
+        <span>网站链接图标</span> |
+        <span> 访问统计</span> |
+        <span>信息量统计 </span> |
+        <span>网站支持单位</span>
+        </p>
+    </div>
+    <!--尾部-相关信息部分-->
+    <div class="footer-others">
+        <img class="img4" src="footer2.png" alt="二维码">
+        <img class="img3" src="footer1.png" alt="党政机关标志">
+        <p class="last-footer">
+            <span>主办单位：国家知识资源中心</span> |
+            <span>网站管理：国家知识资源中心办公室 </span> |
+            <span> 网站维护：知识资源出版社</span>
+        </p>
+        <span> 版权所有：国家知识资源中心 未经许可不得复制ICP备案编号：京ICP备05069085号</span>
+
+
+    </div>
+</body>
+
+</html>
