@@ -1,0 +1,72 @@
+ /*有浮动层时固定在中间不随着内容而滚动*/
+ body {
+    width: 1000px;
+    height: 1000px;
+}
+
+#button {
+    /*设置z-index属性必须设置position:relative或absolute*/
+    position: relative;
+    /*设置div位于遮罩的上方*/
+    z-index: 2;
+    border: 1px solid grey;
+
+}
+
+#cover {
+    position: fixed;
+    width: 100%;
+    height: 1500px;
+    left: 0;
+    top: 0;
+    /*设置遮罩位于div的下方*/
+    z-index: 1;
+}
+
+#box {
+    position: relative;
+    border: 1px solid #000;
+    /*当弹窗显示时，屏幕滚动时，弹窗始终保持位置固定在屏幕正中，不随屏幕滚动而变化位置*/
+    position: fixed;
+    width: 400px;
+    height: 300px;
+    left: 50%;
+    top: 50%;
+    /*配合left:50%和top:50%属性使得浮出层的中心默认在屏幕正中，margin-top为height的一半，margin-left为width的一半*/
+    margin: -150px 0 0 -200px;
+    /*设置弹窗位于遮罩的上方*/
+    z-index: 2;
+    /*开始时隐藏弹窗*/
+    display: none;
+    overflow: auto;
+}
+/*弹框出来的时候顶部的样式*/
+.top {
+    width: 390px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 10px;
+    background-color: #555;
+    color: #fff;
+}
+/*弹框内容样式*/
+p {
+    height:170px;
+    padding: 0 10px;
+    overflow: auto;
+}
+/*按钮位置样式*/
+.btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+/*按钮样式*/
+.btn>button {
+    border: none;
+    margin-right: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: #555;
+    color: #fff;
+}
