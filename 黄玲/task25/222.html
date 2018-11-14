@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+    .main{
+        width:550px;
+        height:550px;
+    }
+    /*表格之间每格间距为零*/
+    #chessBoard{
+        border-spacing: 0;
+    }
+    /*棋盘所有格子边框设置*/
+    #chessBoard td{
+        height:50px;
+        width:50px;
+        padding:0;
+        text-align: center;
+        border:1px solid #ccc;
+        box-sizing: border-box;
+    }
+    /*下面使最外层格子边框变粗*/
+    #chessBoard tr:first-child>td{
+        border-color:transparent;
+        border-bottom:2px solid #000;
+    }
+    #chessBoard tr:last-child>td{
+        border-bottom:2px solid #000;
+    }
+    #chessBoard tr>td:last-child{
+        border-right:2px solid #000;
+    }
+    #chessBoard tr>td:first-child{
+        border-color:transparent;
+        border-right:2px solid #000;
+    }
+    /*数字部分显示边框消失*/
+    #chessBoard tr:first-child>td:first-child{
+        border-color:transparent;
+    }
+    #chessBoard tr:first-child>td:last-child{
+        border-right-color:transparent;
+    }
+    #chessBoard tr:last-child>td:first-child{
+        border-bottom-color:transparent;
+    }
+    /*执行部分整体设置*/
+    .button{
+        display:flex;
+        margin-top:20px;
+        height:40px;
+        width:200px;
+    }
+    /*棋盘整体*/
+    .main{
+        position:relative;
+    }
+    /*棋子初始设置*/
+    #selected-box{
+        width:50px;
+        height:50px;
+        position:absolute;
+        top:50px;
+        left:50px;
+        background-color:red;
+        border-right:10px solid blue;/*开始方向朝右*/
+        box-sizing: border-box;
+        transition:all 1s;
+    }
+
+    </style>
+</head>
+<body>
+    <!--棋盘整体-->
+    <div class="main">
+        <!--棋盘-->
+        <table id = "chessBoard"></table>
+        <!--棋子-->
+        <div id = "selected-box"></div>
+    </div>
+    <!--按钮操作部分-->
+    <form class="button">
+        <!--命令输入框-->
+        <input id="text-input" type="text"/>
+        <!--按钮-->
+        <input type="button" value="执行" onclick="changeBox()"/>
+    </form>
+    
+    <script type="text/javascript" src="222.js"></script>
+</body>
+</html>

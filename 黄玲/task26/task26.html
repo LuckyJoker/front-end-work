@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
+</head>
+<body>
+
+
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+      </div>
+    </div>
+
+
+  <style>
+    html {
+      background:#018DED url(http://unsplash.it/1500/1000?image=881&blur=50);
+      background-size:cover;
+      font-family:'helvetica neue';
+      text-align: center;
+      font-size: 10px;
+    }
+
+    body {
+      margin: 0;
+      font-size: 2rem;
+      display:flex;
+      flex:1;
+      min-height: 100vh;
+      align-items: center;
+    }
+
+    .clock {
+      width: 30rem;
+      height: 30rem;
+      border:20px solid white;
+      border-radius:50%;
+      margin:50px auto;
+      position: relative;
+      padding:2rem;
+      box-shadow:
+        0 0 0 4px rgba(0,0,0,0.1),
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .clock-face {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-3px); /* account for the height of the clock hands */
+    }
+
+    .hand {
+      width:50%;
+      height:6px;
+      background:black;
+      position: absolute;
+      top:50%;
+    }
+
+  </style>
+
+  <script>
+      function change(){
+          //获得元素
+          var hour = document.getElementsByClassName("hand hour-hand"); //时针
+          var minutes = document.getElementsByClassName("hand min-hand");  //分针
+          var second = document.getElementsByClassName("hand second-hand");  //秒针
+          var hand = document.getElementsByClassName("hand");   //三个针
+          //获得当前时间
+          var nowHour = new Date().getHours();
+          var nowMin = new Date().getMinutes();
+          var nowSecond = new Date().getSeconds();
+          //计算整数之外的度数
+          var hourDeg = (nowMin/60)*30;    //因为分针转一圈时针转30度
+          var minDeg = (nowSecond/60)*6;     //秒针每一圈分针6度
+
+          for(var i = 0;i < hand.length;i++){
+              hand[i].style.transformOrigin = "90% 50%";          //设置旋转的原点
+          }
+          //因为最开始的指向不是零点，所以每个正确度数基础上还要再加90度设置为零点处
+          hour[0].style.transform = "rotate(" + (nowHour*30+hourDeg+90) + "deg)";     
+          minutes[0].style.transform = "rotate(" + (nowMin*6+minDeg+90) + "deg)";
+          second[0].style.transform = "rotate(" + (nowSecond*6+90) + "deg)";
+      }
+      setInterval("change()",1000);      //1秒钟改变一次
+  </script>
+</body>
+</html>

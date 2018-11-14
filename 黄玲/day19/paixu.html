@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+    #show{
+        height:300px;
+        display:flex;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+    }
+    #rerank{
+        height:300px;
+        display:flex;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+    }
+    </style>
+</head>
+<body>
+    <!--输入区域-->
+    <div class="input_area">
+        <input type="text" id="input_num"/>
+        <!--四个按钮-->
+        <button type="button" onclick="insert_left()">左侧入</button>
+        <button type="button" onclick="remove_left()">左侧出</button>
+        <button type="button" onclick="insert_right()">右侧入</button>
+        <button type="button" onclick="remove_right()">右侧出</button>
+        <button type="button" onclick="paixu()">排序</button>
+    </div>
+    <!--显示区域-->
+    <div id="show"></div>
+    <div id="rerank"></div>
+    <!--js文件-->
+    <script type="text/javascript">
+    var sum = 0;//总数为全局变量，起始为零
+        //右侧入函数
+        function insert_right(){
+            var num = document.getElementById("input_num");
+            var d = document.getElementById("show");
+            //创建新的div
+            var newD = document.createElement("div");
+            //以下为div设置属性
+            newD.className = "new";
+            newD.style.width = 30 + "px";
+            newD.style.marginRight = 10 +"px";
+            newD.style.color = "transparent";
+            newD.style.display = "inline-block";
+            newD.style.backgroundColor = "rgb(255,0,0)";
+            newD.style.textAlign = "center";
+            //判断输入是否为数字
+            if(parseFloat(num.value).toString() == "NaN"){
+                alert("不是数字");
+                return;
+            }
+            //判断是否是10-100的数字
+            if(parseFloat(num.value)<10||parseFloat(num.value)>100){
+                alert("请输入10-100之内的数字");
+                return;
+            }
+            //判断元素是否满
+            if(sum>=60){
+                alert("队列已有60个元素，已满");
+                return;
+            }
+            //满足上面条件，则添加元素
+            newD.style.height =parseFloat(num.value)+"%";//高度由百分比表示
+            newD.innerHTML = num.value;
+            d.appendChild(newD);
+            sum++;
+        }
+        //左侧插入
+        function insert_left(){
+            var num = document.getElementById("input_num");
+            var d = document.getElementById("show");
+            //创建新元素
+            var newD = document.createElement("div");
+            //设置属性
+            newD.className = "new";
+            newD.style.width = 30 + "px";
+            newD.style.marginRight = 10 +"px";
+            newD.style.textAlign = "center";
+            newD.style.color = "transparent";
+            newD.style.backgroundColor = "rgb(255,0,0)";
+            //判断输入是否是数字
+            if(parseFloat(num.value).toString() == "NaN"){
+                alert("不是数字");
+                return;
+            }
+            //判断是否是10-100的数字
+            if(parseFloat(num.value)<10||parseFloat(num.value)>100){
+                alert("请输入10-100之内的数字");
+                return;
+            }
+            //判断元素是否满
+            if(sum>=60){
+                alert("队列已有60个元素，已满");
+                return;
+            }
+            //若满足，则在左侧插入
+            newD.style.height =parseFloat(num.value)+"%";
+            newD.innerHTML = num.value;
+            d.insertBefore(newD,d.firstChild);
+            sum++;
+        }
+       
+       
+    
+        //从左侧删除
+        function remove_left(){
+            var d = document.getElementById("show");
+            //判断队列是否已为空
+            if(d.innerHTML == ""){
+                alert("队列已为空");
+                return;
+            }
+            //不为空，则输出并删除
+            alert(d.firstChild.innerHTML);
+            d.removeChild(d.firstChild);
+            sum--;
+        }
+        //从右侧删除
+        function remove_right(){
+            var d = document.getElementById("show");
+             //判断队列是否已为空
+            if(d.innerHTML == ""){
+                alert("队列已为空");
+                return;
+            }
+             //不为空，则输出并删除
+            alert(d.lastChild.innerHTML)
+            d.removeChild(d.lastChild);
+            sum--;
+        }
+        //删除被点击的队列元素
+        function del(){
+            var j = document.getElementById("show");
+         
+                document.getElementById("show").onclick = function(e){
+                e = e||window.event;
+                var t = e.target || e.srcElement;
+                if(t.className == "new"){
+                    j.removeChild(t);
+                    sum--;
+                }
+               }
+           
+        }
+        del();
+        //排序函数
+        function paixu(){
+            //重排后的部分
+            var rerank = document.getElementById("rerank");
+            var rerank_num = rerank.getElementsByTagName("div");
+            //已有元素
+            var number=document.getElementById("show").getElementsByClassName("new");
+            var rank=[];
+                //若重排队列不为空，则先进行清除
+                while(rerank.innerHTML!=""){
+                    rerank.removeChild(rerank_num[0]);
+                }
+    
+            //rank存各元素内数字
+            for(var i = 0;i < number.length;i++){
+                rank[i]=parseFloat(number[i].innerHTML);
+            }
+            //将数字排序
+            for(var j = 0;j < number.length;j++){
+                for(var k = j+1;k < number.length;k++){
+                    if(rank[j]>rank[k]){
+                        var temp = rank[j];
+                        rank[j] = rank[k];
+                        rank[k] = temp;
+                    }
+                }
+            }
+            //根据排好序的数组往重拍div内依次添加元素
+            for(var i = 0;i < rank.length;i++){
+                var newD = document.createElement("div");
+                //赋值
+                newD.innerHTML=rank[i];
+                //样式设置
+                newD.style.width = 30 + "px";
+                newD.style.marginRight = 10 +"px";
+                newD.style.textAlign = "center";
+                newD.style.color = "transparent";
+                newD.style.backgroundColor = "rgb(255,0,0)";
+                newD.style.height =parseFloat(rank[i])+"%";
+                rerank.appendChild(newD);
+            }
+        }
+        </script>
+    
+</body>
+</html>

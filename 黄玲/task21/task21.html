@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+    /*输入提示文字设置，即姓名，密码等*/
+    .info_td{
+        height:30px;
+        vertical-align: top;
+        font-size:12px;
+        text-align: right;
+    }
+    /*输入框设置*/
+    input{
+        width:200px;
+        height:90%;
+        padding-left:5px;
+        border-radius: 5px;
+        border:1px solid #ccc;
+    }
+    .input_td{
+        height:30px;
+    }
+    /*输入框获得焦点后提示文字的设置*/
+    .input_td>p{
+        color:#666;
+        font-size:12px;
+        margin:5px 0 5px 0;
+    }
+    /*提交按钮设置*/
+    #submit_button{
+        float:right;
+        height:20px;
+        width:50px;
+        color:white;
+        background-color:rgb(124, 163, 214);
+    }
+    </style>
+    <script type="text/javascript">
+        //当名字输入框获得焦点后函数
+        function name_onfocus(){
+            var info=document.getElementById("person_name");
+            //创建新元素p
+            var newP=document.createElement("p");
+            //如果已经存在p，则不添加元素
+            if(info.parentElement.lastChild.tagName == "P"){
+                info.parentElement.lastChild.innerHTML="必填，长度为4~16个字符";
+            }else{  //不存在则添加p元素
+                newP.innerHTML="必填，长度为4~16个字符";
+                info.parentElement.appendChild(newP);
+            }
+            //获得焦点后的输入框设置
+            info.style.borderColor="blue";
+            info.style.boxShadow="0px 0px 5px #99ffff";
+        }
+        //计算字符串的字节长度
+        function getBytes(str){
+            var length=0,charCode=-1;
+            for(var i = 0;i <str.length;i++){
+                charCode=str.charCodeAt(i);
+                if(charCode>=0&&charCode<=128){
+                    length+=1;
+                }else{
+                    //汉字则算两个长度
+                    length+=2;
+                }
+                
+            }
+            return length;
+        }
+        //当姓名输入框失去焦点
+        function name_onblur(){
+            var info=document.getElementById("person_name");
+            //若字符长度在4到16之间则名称可用，边框样式为绿色
+            if(getBytes(info.value)>=4&&getBytes(info.value)<=16){
+                info.parentElement.lastChild.innerHTML="名称可用";//p元素内容改变
+                info.style.borderColor="green";
+                info.style.boxShadow="0px 0px 5px green";
+            }
+            else{//否则，边框样式为红色
+                info.style.borderColor="red";
+                info.style.boxShadow="0px 0px 5px red";
+                if(info.value==""){//为空
+                    info.parentElement.lastChild.innerHTML="名称不能为空";
+                }
+                else if(getBytes(info.value)>=16){//大于16
+                    info.parentElement.lastChild.innerHTML="名称不能超过十六个字符";
+                }
+                else{//小于4
+                    info.parentElement.lastChild.innerHTML="名称不能少于4个字符";
+                }
+            }
+        }
+        //密码输入框获得焦点，与名字框基本相同操作
+        function pwd_onfocus(){
+            var info=document.getElementById("person_password");
+            var newP=document.createElement("p");
+            if(info.parentElement.lastChild.tagName == "P"){
+                info.parentElement.lastChild.innerHTML="必填，长度为4~16个字符";
+            }else{
+                newP.innerHTML="必填，长度为4~16个字符";
+                info.parentElement.appendChild(newP);
+            }
+            info.style.borderColor="blue";
+            info.style.boxShadow="0px 0px 5px #99ffff";
+        }
+        //密码框失去焦点，也与名称框差不多，一样的
+        function pwd_onblur(){
+            var info=document.getElementById("person_password");
+           
+            if(getBytes(info.value)>=4&&getBytes(info.value)<=16){
+                info.parentElement.lastChild.innerHTML="密码可用";
+                info.style.borderColor="green";
+                info.style.boxShadow="0px 0px 5px green";
+            }
+            else{
+                info.style.borderColor="red";
+                info.style.boxShadow="0px 0px 5px red";
+                if(info.value==""){
+                    info.parentElement.lastChild.innerHTML="密码不能为空";
+                }
+                else if(getBytes(info.value)>=16){
+                    info.parentElement.lastChild.innerHTML="密码不能超过十六个字符";
+                }
+                else{
+                    info.parentElement.lastChild.innerHTML="密码不能少于4个字符";
+                }
+            }
+        }
+        //密码验证框获得焦点
+        function confirm_onfocus(){
+            var info=document.getElementById("password_confirm");
+            var newP=document.createElement("p");
+            if(info.parentElement.lastChild.tagName == "P"){
+                info.parentElement.lastChild.innerHTML="再次输入相同密码";
+            }else{
+                newP.innerHTML="再次输入相同密码";
+                info.parentElement.appendChild(newP);
+            }
+            info.style.borderColor="blue";
+            info.style.boxShadow="0px 0px 5px #99ffff";
+        }
+        //密码验证框失去焦点
+        function confirm_onblur(){
+            var info=document.getElementById("password_confirm");
+            var pwd = document.getElementById("person_password");
+            if(info.value === pwd.value){//判断两个密码输入一致
+                info.parentElement.lastChild.innerHTML="密码输入一致";
+                info.style.borderColor="green";//绿色
+                info.style.boxShadow="0px 0px 5px green";
+            }
+            else{//两个密码输入内容不一致
+                info.style.borderColor="red";
+                info.style.boxShadow="0px 0px 5px red";//红色
+                info.parentElement.lastChild.innerHTML="密码输入不一致";
+            }
+        }
+        //邮箱输入框获得焦点
+        function email_onfocus(){
+            var info=document.getElementById("personalEmail");
+            var newP=document.createElement("p");
+            if(info.parentElement.lastChild.tagName == "P"){
+                info.parentElement.lastChild.innerHTML="请输入你常用的邮箱";
+            }else{
+                newP.innerHTML="请输入你常用的邮箱";
+                info.parentElement.appendChild(newP);
+            }
+            info.style.borderColor="blue";
+            info.style.boxShadow="0px 0px 5px #99ffff";
+        }
+        //邮箱输入框失去焦点
+        function email_onblur(){
+            var info=document.getElementById("personalEmail");
+            var str =  /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;//正则表达式
+          
+            if(info.value != ""){//不为空时
+                if(str.test(info.value) == true){//如果格式正确
+                    info.parentElement.lastChild.innerHTML="邮箱格式正确";
+                    info.style.borderColor="green";
+                    info.style.boxShadow="0px 0px 5px green";
+                }
+                else{//否则
+                    info.parentElement.lastChild.innerHTML="邮箱格式错误";
+                    info.style.borderColor="red";
+                    info.style.boxShadow="0px 0px 5px red";
+                }
+            }else{//为空时
+                info.style.borderColor="red";
+                info.style.boxShadow="0px 0px 5px red";
+                info.parentElement.lastChild.innerHTML="邮箱不能为空";
+            }
+        }
+        //电话输入框获得焦点
+        function tel_onfocus(){
+            var info=document.getElementById("personalTel");
+            var newP=document.createElement("p");
+            if(info.parentElement.lastChild.tagName == "P"){
+                info.parentElement.lastChild.innerHTML="请输入你常用的手机号码";
+            }else{
+                newP.innerHTML="请输入你常用的手机号码";
+                info.parentElement.appendChild(newP);
+            }
+            info.style.borderColor="blue";
+            info.style.boxShadow="0px 0px 5px #99ffff";
+        }
+        //判断字符串内是否全为数字
+        function testTel(str){
+            for(var i = 0;i <str.length;i++){
+               if(parseFloat(str[i]) == NaN){
+                   return false;
+               }
+            }
+            return true;
+        }
+        //电话输入框失去焦点
+        function tel_onblur(){
+            var info=document.getElementById("personalTel");
+            if(info.value.length == 11&&testTel(info.value)){//电话为11位且全为数字，格式正确
+                info.parentElement.lastChild.innerHTML="手机号码填写正确";
+                info.style.borderColor="green";
+                info.style.boxShadow="0px 0px 5px green";
+            }
+            else{//否则，先设置样式
+                info.style.borderColor="red";
+                info.style.boxShadow="0px 0px 5px red";
+                if(info.value==""){//为空
+                    info.parentElement.lastChild.innerHTML="手机不能为空";
+                }
+                else{//格式错误
+                    info.parentElement.lastChild.innerHTML="请填写正确的手机号码";
+                }
+            }
+        }
+        //提交按钮获得焦点
+        function form_submit(){
+            //判断输入框的颜色
+            var num = document.getElementsByClassName("input_td");
+            for(var i = 0;i< num.length;i++){
+                if(num[i].firstChild.style.borderColor == "red"){//红色，输入有误，返回
+                    alert("输入有误！");
+                    return;
+                }else if(num[i].firstChild.style.borderColor =="green"){//绿色，不管
+                    
+                }
+                else{  //灰色，没输入，返回
+                    alert("请输入完全！");
+                    return;
+                }
+            }
+            //最后所有为绿色，则输入成功
+            alert("输入正确，提交成功！");
+        }
+    </script>
+</head>
+<body>
+    <!--表单-->
+    <form>
+        <!--table-->
+        <table id="main" cellspacing="10" cellpadding="5">
+            <tr>
+                <!--名称及输入-->
+                <td class="info_td">名称</td>
+                <td class="input_td"><input type="text" id="person_name" onfocus="name_onfocus()" onblur="name_onblur()"></td>
+            </tr>
+            <tr>
+                <!--密码及输入-->
+                <td class="info_td">密码</td>
+                <td class="input_td"><input type="password" id="person_password" onfocus="pwd_onfocus()" onblur="pwd_onblur()"></td>
+            </tr>
+            <tr>
+                <!--确认密码一行-->
+                <td class="info_td">密码确认</td>
+                <td class="input_td"><input type="password" id="password_confirm" onfocus="confirm_onfocus()" onblur="confirm_onblur()"></td>
+            </tr>
+            <tr>
+                <!--确认邮箱-->
+                <td class="info_td">邮箱</td>
+                <td class="input_td"><input type="email" id="personalEmail" onfocus="email_onfocus()" onblur="email_onblur()"></td>
+            </tr>
+            <tr>
+                <!--邮箱-->
+                <td class="info_td">手机</td>
+                <td class="input_td"><input type="tel" id="personalTel" onfocus="tel_onfocus()" onblur="tel_onblur()"></td>
+            </tr>
+            <tr>
+                <!--提交按钮-->
+                <td colspan="2"><input type="button" id="submit_button" value="提交" onfocus="form_submit()"/></td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+</html>
