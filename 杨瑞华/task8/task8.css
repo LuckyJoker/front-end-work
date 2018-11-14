@@ -1,0 +1,619 @@
+/*整体样式*/
+/*这个网页在新闻部分设置的是鼠标滑过便出现下划线标志*/
+*{
+    padding:0;
+    margin:0;
+}
+/*带有a标签的则去除下划线并且在碰到时出现下划线*/
+a{
+    text-decoration: none;
+    color:#333;
+}
+a:hover{
+    text-decoration: underline;
+}
+/*整体样式*/
+body{
+    min-width:1000px;
+    font-family:"Microsoft Yahei"; /*整体字体微软雅黑*/
+    font-size:16px;
+}
+.all{
+    width:100%;
+    background-color:#fff;
+}
+/*头部整体样式（包括导航栏和上面的logo）*/
+.all-header{
+    width:100%;
+    background-color:#f3f3f3;  /*颜色为渐变，我在这里就用了一种颜色*/
+}
+/*上方logo行样式*/
+.logo{
+    position: relative;
+    width:1000px;
+    margin:0 auto;
+    height:60px;
+    font-size:14px;
+}
+/*logo照片样式*/
+.logo-picture{
+   float:left;
+   width:155px;
+   padding-top:6px;
+   padding-left:20px;
+}
+/*搜索框样式包括三部分*/
+.search{
+    position:absolute;
+    left:50%;
+    margin-left:-200px;
+    width:400px;
+    height:48px;
+    padding-top:12px;
+}
+.box1{
+    float:left;
+    width:100px;
+    height:34px;
+    line-height:34px; 
+    background-color: #fff;
+    border:1px solid #c6c6c6;
+    border-right:none;
+}
+.box1>img{
+    float:right;
+    padding-top:1px;
+}
+span{
+    padding-top:12px;
+    padding-left:10px;
+}
+/*输入框样式*/
+.search-text{
+    height:34px;
+    width:260px;
+    border:1px solid #c6c6c6;
+}
+/*按钮样式*/
+.search-button{
+    position: absolute;
+    right:0;
+    width:38px;
+    height:37px;
+    background:url("firstlogo.png");
+    border:none;
+}
+/*logo一行中的字体的位置*/
+.logo-font{
+    position: absolute;
+    right:20px;
+    top:20px;
+}
+/*导航栏样式（利用列表）*/
+.leader{
+    min-width:1000px;
+    background-color: #006ba1;
+    height:50px;
+    font-size:14px;
+}
+.leader-ul{
+    width:1000px;
+    margin:0 auto;
+    padding:0;
+}
+.li1{
+   float:left;
+   height:100%;
+   list-style-type: none;
+}
+.li1>a{
+    padding-left:16px;
+    padding-right:16px;
+    text-align: center;
+    color:#fff;
+    line-height:50px;
+    text-decoration: none;
+}
+.li1:hover{
+    background-color: #0093dd;
+}
+/*当鼠标放到自然状况那里时出现的下拉框样式*/
+.li-2{
+    position: relative;
+}
+.title{
+    position: absolute;
+    z-index:2;
+    list-style-type: none;
+    width:86px;
+    line-height:40px;
+    border:2px solid #0093dd;
+    background: #fff;
+    text-align:center;
+    display: none;}
+.title>p{
+    height:40px;
+}
+/*开始将其隐藏，后面设为块状元素，其中利用绝对定位以防影响其他元素*/
+.li-2:hover .title{
+    display:block; 
+}
+.title>p:hover{
+    background-color: #0093dd;
+    color:#fff;
+    cursor: pointer;  
+}
+/*中间第一部分图片部分样式*/
+.middle{
+    width:1000px;
+    margin:0 auto;
+}
+.middle-picture{
+    position: relative;
+}
+.middle-picture>img{
+    float:left;
+    padding:20px 0;
+    margin-right:50px;
+}
+/*图片下方的透明度和文字样式*/
+.middle-picture>p{
+    position: absolute;
+    top:345px;
+    height:30px;
+    width:635px;
+    background-color: black;
+    opacity: 0.8;
+    padding-top:10px;
+    padding-left:15px;
+    color:#fff;
+}
+.jiaobiao{
+    float:right;
+}
+/*图片右边的文字样式*/
+.middle-picture-right{
+    line-height: 28px;
+    padding:20px 0 10px;
+}
+.ul2{
+    height:38px;
+    margin:0;
+    white-space: nowrap;
+}
+/*图片右边新闻样式*/
+.ul2>li{
+    display: inline-block;
+    list-style-type: none;
+    background-color: #0093dd;
+    width:95px;
+    height:100%;
+    font:18px bold;
+    color:#fff;
+    text-align: center;
+    line-height:38px;
+    border:1px solid #006ba1;
+}
+.ul2>li:hover{
+    cursor: pointer;   /*使鼠标触动时出现手指的样式*/  
+}
+#special{
+    background-color:#fff;
+    color: #0093dd;
+    border-bottom:none;
+}
+.li2>a{
+    color:#333;
+    text-decoration: none;
+}
+.li2>a:hover{
+    text-decoration: underline;
+}
+/*对于列表来说 他前面的圆点并不知道怎么变小*/
+.ul3{
+    margin:20px 0 10px;  
+    list-style-position: outside;      
+}
+/*中间第二部分内容总样式*/
+.middle2{
+    display:flex;
+    width:1000px;
+    margin:40px auto 0;                                           
+}
+/*第二部分最左边样式*/
+.middle2-left{
+    width:260px;
+    border-top:2px solid #d4d4d4;
+}
+/*第二部分左边上方题目样式*/
+.top{
+    width:72px;
+    font:18px bold;
+    color:#333;
+    padding:10px;
+    border-top:2px solid #0093dd;
+    text-align: center;
+}
+.one{
+    width:100%;
+    height:92px;
+    background-color: #f2f2f2;
+    border-bottom:1px solid #fff;
+}
+.one>img{
+    padding:16px;
+    float:left;
+}
+.one>p{
+    padding-top:22px;
+    font:18px bold;
+    color:#0093dd;
+    margin:0 6px;
+    cursor: pointer;
+}
+.one>span{
+    font-size:12px;
+    color:#b6b6b6;
+    padding:0 12px 0 0;
+    line-height:16px;
+}
+/*第二部分中间样式*/
+.middle2-middle{
+    width:435px;
+    margin:0 20px;
+    border-top:2px solid #d4d4d4;
+}
+/*2015年专题样式*/
+.main-news{
+    width:100%;
+    border-top:1px solid #d4d4d4;
+    padding-top:20px;
+    margin-top:2px;
+    color:#333;
+    overflow: hidden;
+}
+.main-news>p{
+    font:18px bold;
+    color:#0093dd;
+    border-left:2px solid #0093dd;
+    padding-left:10px;
+    margin-bottom:20px;
+}
+.main-news>img{
+    float:left;
+    margin-right:15px;
+}
+.main-news>ul{
+ list-style-position: inside;
+ line-height:26px;
+}
+.news-middle{
+    margin-top:25px;
+}
+.news-last{
+   margin-top:5px;
+   float:right;
+   font-size:14px;
+}
+.news-last>a{
+    color:#0093dd;
+    text-decoration: none;
+}
+/*第二部分右边样式*/
+.middle2-right{
+    width:270px;
+}
+.middle-right-top{
+    width:100%;
+    height:210px;
+    border:1px solid #d4d4d4;
+    color:#6b6b6b;
+}  
+.tip{
+    float:right;
+    padding-top:10px;
+    padding-right:15px;
+    cursor: pointer;
+}
+/*右边框中出现的十个词语和它分别的样式*/
+.many-words{
+    position: relative;
+    width:100%;
+    margin-top:3px;
+    border-top:1px solid #d4d4d4;
+}
+.many-words>a{
+    text-decoration: none;
+}
+.font1{
+    position: absolute;
+    top:15px;
+    left:10px;
+    font-size:16px;
+    color:#00561f;
+}
+.font2{
+    position: absolute;
+    top:20px;
+    right:30px;
+    font-size:14px;
+    color:#1bbc9b;
+}
+.font3{
+    position: absolute;
+    top:40px;
+    left:62px;
+    font-size:18px;
+    color:#304b5e;
+}
+.font4{
+    position: absolute;
+    top:50px;
+    right:57px;
+    color:#1d2088;
+}
+.font5{
+    position: absolute;
+    top:70px;
+    left:10px;
+    font-size:14px;
+    color:#e5004f;
+}
+.font6{
+    position: absolute;
+    top:70px;
+    right:7px;
+    font-size:12px;
+    color:#f39800;
+}
+.font7{
+    position: absolute;
+    top:80px;
+    right:113px;
+    color:#5f52a0;
+}
+.font8{
+    position: absolute;
+    top:110px;
+    right:55px;
+    font-size:20px;
+    color:#0093dd;
+}
+.font9{
+    position: absolute;
+    top:110px;
+    left:7px;
+    color:#acd598;
+}
+.font0{
+    position: absolute;
+    top:135px;
+    right:9px;
+    font-size:14px;
+    color:#0068b7;
+}
+/*下面2014专题报道样式*/
+.middle-right-later{
+    margin-top:30px;
+}
+.middle-right-later>p{
+    font:18px bold;
+    color:#0093dd;
+    border-left:2px solid #0093dd;
+    padding-left:10px;
+    margin-bottom:20px;
+}
+.ul4{
+    list-style-position: inside;
+    overflow: hidden;
+}
+.ul4>li{
+    font-size:16px;
+    color:#333;
+    line-height:27px;
+}
+/*第三部分内容样式*/
+.middle3{
+    display: flex;
+    width:1000px;
+    margin:40px auto 0;
+}
+/*第三部分左边样式*/
+.middle3-left{
+    width:400px;
+    border-top:2px solid #d4d4d4;
+}
+.middle3-left-main{
+    width:400px;
+    border-top:1px solid #d4d4d4;
+    padding-top:20px;
+    font-size:14px;
+}
+.middle3-left-main>img{
+    float:left;
+    margin-right:20px;
+    margin-bottom:20px;
+}
+.middle3-left-main>p{
+    font-size:14px;
+    line-height: 21px;
+    color:#333;
+}
+.color{
+    font:14px bold;
+    color:#006ba1;
+}
+/*个人信息介绍利用网格布局*/
+.main-person-news{
+    width:100%;
+    display: grid;
+    grid-template-columns:repeat(2,190px);
+    grid-template-rows: repeat(2,110px);
+    grid-gap: 10px 15px;
+}
+.firstly{
+    grid-area:1/1/2/2;
+    font-size:14px;
+    color:#333;
+}
+.firstly>ul{
+    list-style-position: inside;
+    margin-top:10px;
+    line-height: 27px;
+}
+.secondly{
+    grid-area:1/2/2/3;
+    font-size:14px;
+    color:#333;
+}
+.secondly>ul{
+    list-style-position: inside;
+    margin-top:10px;
+    line-height: 27px;
+}
+.thirdly{
+    grid-area:2/1/3/2;
+    color:#333;
+}
+.thirdly>ul{
+    list-style-position: inside;
+    margin-top:10px;
+    line-height: 27px;
+}
+.fourly{
+    grid-area:2/2/3/3;
+    font-size:14px;
+    color:#333;
+}
+.fourly>ul{
+    list-style-position: inside;
+    margin-top:30px;
+    line-height: 27px;
+}
+/*第三部分中间样式*/
+.middle3-middle{
+    width:300px;
+    border-top:2px solid #d4d4d4;
+    margin:0 20px;
+}
+.middle3-middle-main{
+    width:300px;
+    border-top:1px solid #d4d4d4;
+    padding-top:20px;
+    line-height: 29px;
+    color:#333;
+}
+.middle3-middle-main>ul{
+    padding-left:10px;
+    list-style-position: inside;
+}
+/*第三部分右边样式*/
+.middle3-right{
+    width:260px;
+    border-top:2px solid #d4d4d4;
+}
+.middle3-right-main{
+    width:260px;
+    border-top:1px solid #d4d4d4;
+    padding-top:20px;
+    line-height: 28px;
+    color:#333;
+}
+.middle3-right-main>p{
+    text-indent: 2em;
+}
+.middle3-right-main>img{
+    float:right;
+}
+.middle3-right-main>ol{
+    list-style-position: inside;
+}
+.middle3-right-main>button{
+    margin-top:40px;
+    margin-left:70px;
+    width:100px;
+    height:30px;
+    border:1px solid #0093dd;
+    border-radius: 4px;
+    color:#0093dd;
+    cursor: pointer;
+}
+.top3{
+    width:50px;
+    font:18px bold;
+    color:#333;
+    padding:10px;
+    border-top:2px solid #0093dd;
+    text-align: center;
+}
+.top4{
+    width:90px;
+    font:18px bold;
+    color:#333;
+    padding:10px;
+    border-top:2px solid #0093dd;
+    text-align: center;
+}
+.last-logo{
+    width:1000px;
+    margin:60px auto 0;
+}
+.class-person{
+    position: relative;
+    width:1000px;
+    margin:40px auto;
+    height:96px;
+    border:1px solid #d4d4d4;
+}
+#border-font{
+    position: absolute;
+    top:-10px;
+    left:50%;
+    margin-left:-100px;
+    font:18px bold;
+    width:200px;
+    text-align: center;
+    color:#333;
+    background-color: #fff;
+    border-left:1px solid #d4d4d4;
+    border-right:1px solid #d4d4d4;
+}
+.text-font{
+    font-size:12px;
+    line-height: 28px;
+    padding:25px 60px;
+    color:#333;
+}
+/*页尾样式*/
+footer{
+    width:100%;
+    height:40px;
+    background-color: #304b5e;
+    text-align: center;
+    line-height: 40px;
+    color:#fff;
+    font-size:14px;
+}
+/*后面的相关信息样式*/
+.footers{
+    width:100%;
+    height:100px;
+    background-color: #f3f3f3;
+}
+.text-last{
+    position: relative;
+    width:496px;
+    margin:0 auto;
+    padding-top:34px;
+    font-size:12px;
+    line-height:18px;
+    color:#666;
+}
+.text-last>p{
+    text-indent: 1em;
+}
+.text-last>img{
+    position: absolute;
+    right:0;
+    top:30px;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>form2</title>
+</head>
+<style>
+    /*表单以及文本框和选中框相对应样式*/
+    form {
+        width: 1000px;
+        margin: 100px auto;
+        font-size: 20px;
+        font-family: "Microsoft Yahei";
+        /*整体字体微软雅黑*/
+    }
+    input {
+        margin-left: 200px;
+    }
+    #new2 {
+        margin-top: 50px;
+        margin-left: 100px;
+    }
+    #new1 {
+        margin-top: 50px;
+        margin-left: 140px;
+    }
+    select {
+        margin-left: 40px;
+        width: 150px;
+        height: 35px;
+        border: 1px solid;
+        border-radius: 5px;
+        outline: none;
+    }
+    option {
+        font-size: 20px;
+    }
+    #select2 {
+        width: 300px;
+    }
+</style>
+
+<body>
+    <form method="post">
+        <div>
+            <input type="radio" name="live" id="live">
+            <label for="live"> 在校生</label>
+            <input type="radio" name="live" id="nolive">
+            <label for="nolive">非在校生</label>
+        </div>
+        <div id="new1">
+            <label for="school">学校</label>
+            <select name="select1" id="select1">
+                <option>---请选择学校---</option>
+                <option value="1">北京</option>
+                <option value="2">武汉</option>
+                <option value="3">江西</option>
+            </select>
+            <select name="select2" id="select2">
+            </select>
+        </div>
+        <div id="new2">
+            <label for="work">就业单位</label>
+            <input type="text" id="work">
+        </div>
+    </form>
+    <script type="text/javascript">
+         /*定义变量*/
+        var live = document.getElementById("live");
+        var nolive = document.getElementById("nolive");
+        var label2 = document.getElementById("label2");
+        var new2 = document.getElementById("new2");
+        var work = document.getElementById("work");
+        var new1 = document.getElementById("new1");
+        var select1 = document.getElementById("select1");
+        var select2 = document.getElementById("select2");
+        var data = [
+            ["北京", "北京大学"], ["北京", "清华大学"], ["北京", "北京邮电大学"], ["北京", "北京航空航天大学"],
+        ];
+        var data2 = [
+            ["武汉", "武汉大学"], ["武汉", "华中科技大学"], ["武汉", "武汉理工大学"], ["武汉", "华中师范大学"],
+        ];
+        var data3 = [
+            ["江西", "南昌大学"], ["江西", "江西科技大学"], ["江西", "江西中医药大学"], ["江西", "江西师范大学"],
+        ];
+
+        function init() {
+            /*display设置为none时不会占用空间*/
+            new2.style.display = "none";
+            new1.style.display = "none";
+            /*选中非在校生的时候点击事件*/
+            nolive.onclick = function () {
+                new1.style.display = "none";
+                new2.style.display = "block";
+                work.style.marginLeft = "40px"
+                work.style.height = "35px";
+                work.style.width = "500px";
+                work.style.border = "1px solid";
+                work.style.borderRadius = "5px";
+                work.style.outline = "none";
+                work.style.fontSize = "20px";
+            }
+            /*选中在校生时的点击事件利用display来显示内容*/
+            live.onclick = function () {
+                new1.style.display = "block";
+                new2.style.display = "none";
+            }
+            /*onchange()事件 是关于select的改变时的事件*/
+            select1.onchange = function () {
+                var index = document.getElementById("select1").selectedIndex;//获取当前选择项的索引.
+                var value = document.getElementById("select1").options[index].innerHTML;//获取当前选择项的文本.
+                select2.innerHTML = "";/*在每一次改变之前对select2的列表进行清空*/
+            /*上面获取到select2选中框中的文本值，对其进行相应城市之间的比较输出学校*/
+                if (value === "北京") {
+                    for (var i = 0; i < data.length; i++) {
+                        var option = document.createElement("option");
+                        option.innerHTML = data[i][1];
+                        select2.appendChild(option);
+                    }
+                }
+                else if (value === "武汉") {
+                    for (var i = 0; i < data2.length; i++) {
+                        var option = document.createElement("option");
+                        option.innerHTML = data2[i][1];
+                        select2.appendChild(option);
+                    }
+                }
+                else if (value === "江西") {
+                    for (var i = 0; i < data3.length; i++) {
+                        var option = document.createElement("option");
+                        option.innerHTML = data3[i][1];
+                        select2.appendChild(option);
+                    }
+                }
+            }
+        }
+        init();
+    </script>
+</body>
+
+</html>

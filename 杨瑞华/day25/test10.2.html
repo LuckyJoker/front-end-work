@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task10</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+/*网格样式以及设置网格的个数*/
+    #grids {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        width: 598px;
+        height: 598px;
+        margin: 20px auto;
+        border: 1px solid #000;
+    }
+ /*红色的小方块 利用绝对定位*/
+    #base1 {
+        position: absolute;
+        top: 300px;
+        left: 300px;
+        width: 59px;
+        height: 59px;
+        background-color: #f00;
+        transition: all 1s; /*添加动画*/
+    }
+ /*红色上方蓝色小方块*/
+    #base2 {
+        position: absolute;
+        top: 0px;
+        width: 59px;
+        height: 20px;
+        background-color: blue;
+    }
+
+    .div1 {
+        width: 600px;
+        margin: 10px auto;
+    }
+
+    .div1>span {
+        display: block;
+        float: left;
+        width: 60px;
+        height: 30px;
+        text-align: center;
+    }
+
+    .div2 {
+        position: absolute;
+        left: -35px;
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+    }
+
+    .div2>span {
+        display: block;
+        float: left;
+        height: 60px;
+        line-height: 60px;
+    }
+
+    .div3 {
+        width: 600px;
+        margin: 0 auto
+    }
+</style>
+
+<body>
+    <div class="div1">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
+        <span>8</span>
+        <span>9</span>
+        <span>10</span>
+    </div>
+    <!--网格内容-->
+    <div id="grids">
+        <div class="div2">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span>10</span>
+        </div>
+        <!--红色和蓝色方块样式-->
+        <div id="base1">
+            <div id="base2"></div>
+        </div>
+    </div>
+    <!--下方文本框和按钮-->
+    <div class="div3">
+        <input type="text" id="text">
+        <button id="click">执行</button>
+    </div>
+    <script>
+        var button1 = document.getElementById("click");
+        var base1 = document.getElementById("base1");
+        var text = document.getElementById("text");
+        /*创建网格和其中的小格子*/
+        var grids = document.getElementById("grids");
+        for (var i = 1; i < 11; i++) {
+            for (var j = 1; j < 11; j++) {
+                var eachgrids = document.createElement("div");
+                grids.appendChild(eachgrids);
+                eachgrids.style.gridColumn = i / (i + 1);
+                eachgrids.style.gridRow = j / (j + 1);
+                eachgrids.style.border = "1px solid #999";
+            }
+        }
+        /*网格的初始位置在6,6*/
+        var position = {
+            x: 5,
+            y: 5,
+            valueinit: 0
+        };
+        /*上移的时候通过x，y来移动*/
+        function go() {
+            var valueinit1 = position.valueinit;
+            valueinit1 = valueinit1 % 4;
+            if (valueinit1 === 0 && position.y > 0) {
+                position.y--;
+            }
+            else if (valueinit1 === 1 && position.x < 9) {
+                position.x++;
+            } else if (valueinit1 === 2 && position.y < 9) {
+                position.y++;
+            } else if (valueinit1 === 3 && position.x > 0) { 
+                position.x--;
+            } else {
+                return false;
+            }
+        }
+        //向左转，通过90度转三次 则valueinit加三
+        function turnLeft() {
+            position.valueinit --;
+        }
+        //向右转
+        function turnRight() {
+            position.valueinit++;
+        }
+        //向后转
+        function turnback() {
+            position.valueinit += 2;
+        }
+        /*直线向左*/
+        function straigthleft() {
+            if(position.x>0){
+            position.x-=1;
+            }
+            else{
+                alert("wrong");
+            }
+        }
+         /*直线向上*/
+        function straigthtop() {
+            if(position.y>0){
+            position.y-=1;
+            }
+            else{
+                alert("wrong");
+            }
+        }
+         /*直线向右*/
+        function straigthright() {
+            if(position.x<9){
+            position.x+=1;
+            }
+            else{
+                alert("wrong");
+            }
+        }
+         /*直线向下*/
+        function straigthbottom() {
+            if(position.y<9){
+            position.y+=1;
+            }
+            else{
+                alert("wrong");
+            }
+        }
+        /*向左移动并且旋转*/
+        function movelef(){
+            if(position.x>0){
+            position.x-=1;
+            }
+            else{
+                alert("超出范围请重试");
+            }
+            base1.style.left = position.x * 60 + "px";
+            base1.style.top = position.y * 60 + "px";
+            base1.style.transform = "rotate(" + -90 + "deg)";
+        }
+         /*向右移动并且旋转*/
+        function moverig(){
+            if(position.x<9){
+            position.x+=1;
+            }
+            else{
+                alert("超出范围请重试");
+            }
+            base1.style.left = position.x * 60 + "px";
+            base1.style.top = position.y * 60 + "px";
+            base1.style.transform = "rotate(" +90+ "deg)";
+        }
+         /*向上移动并且旋转*/
+        function movetop(){
+            if(position.y>0){
+            position.y-=1;
+            }
+            else{
+                alert("超出范围请重试");
+            }
+            base1.style.left = position.x * 60 + "px";
+            base1.style.top = position.y * 60 + "px";
+            base1.style.transform = "rotate(" +0+ "deg)";
+        }
+         /*向下移动并且旋转*/
+        function movebot(){
+            if(position.y<9){
+            position.y+=1;
+            }
+            else{
+                alert("超出范围请重试");
+            }
+            base1.style.left = position.x * 60 + "px";
+            base1.style.top = position.y * 60 + "px";
+            base1.style.transform = "rotate(" +180+ "deg)";
+        }
+        //小方块的移动渲染
+        function change() {
+            var valueinit1 = position.valueinit;
+            valueinit1 = valueinit1 % 4;  /*对其取余数，0为上，1为右，2为下，-1为左*/
+            base1.style.left = position.x * 60 + "px";
+            base1.style.top = position.y * 60 + "px";
+            base1.style.transform = "rotate(" + position.valueinit * 90 + "deg)";
+        }
+        
+        
+        //对button的事件监听程序
+        button1.onclick = function () {
+            if (text.value.toUpperCase() === "GO") {
+                go();
+                change();
+            }
+            if (text.value.toUpperCase() === "TUNLEF") {
+                turnLeft();
+                change();
+              
+            }
+            if (text.value.toUpperCase() === "TUNRIG") {
+                turnRight();
+                change();
+            }
+            if (text.value.toUpperCase() === "TUNBAC") {
+                turnback();
+                change();
+            }
+            if (text.value.toUpperCase() === "TRALEF") {
+                straigthleft();
+                change();
+            }
+            if (text.value.toUpperCase() === "TRATOP") {
+                straigthtop();
+                change();
+            }
+            if (text.value.toUpperCase() === "TRARIG") {
+                straigthright();
+                change();
+            }
+            if (text.value.toUpperCase() === "TRABOT") {
+                straigthbottom();
+                change();
+            }
+            if (text.value.toUpperCase() === "MOVLEF") {
+                movelef(); 
+            }
+            if (text.value.toUpperCase() === "MOVRIG") {
+                moverig(); 
+            }
+            if (text.value.toUpperCase() === "MOVTOP") {
+                movetop(); 
+            }
+            if (text.value.toUpperCase() === "MOVBOT") {
+                movebot(); 
+            }
+        }
+    </script>
+</body>
+
+</html>
