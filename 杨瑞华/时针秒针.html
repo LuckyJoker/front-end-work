@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
+</head>
+<body>
+
+
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"  id="hour"></div>
+        <div class="hand min-hand" id="minute"></div>
+        <div class="hand second-hand" id="second"></div>
+      </div>
+    </div>
+
+
+  <style>
+    html {
+      background:#018DED url(http://unsplash.it/1500/1000?image=881&blur=50);
+      background-size:cover;
+      font-family:'helvetica neue';
+      text-align: center;
+      font-size: 10px;
+    }
+    body {
+      margin: 0;
+      font-size: 2rem;
+      display:flex;
+      flex:1;
+      min-height: 100vh;
+      align-items: center;
+    }
+
+    .clock {
+      width: 30rem;
+      height: 30rem;
+      border:20px solid white;
+      border-radius:50%;
+      margin:50px auto;
+      position: relative;
+      padding:2rem;
+      box-shadow:
+        0 0 0 4px rgba(0,0,0,0.1),
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .clock-face {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-3px); /* account for the height of the clock hands */
+    }
+    .hand {
+      width:50%;
+      height:6px;
+      background:black;
+      position: absolute;
+      top:50%;
+      right:50%;
+      transform-origin: 100% 0; /*设置旋转中心在右边*/
+    }
+    .hour-hand{
+    height:6px;
+    width:30%;
+    background:black;
+    position: absolute;
+      top:50%;
+      margin-top:3px;
+}
+.min-hand{
+    width:40%;
+    height:3px;
+    background:gray;
+    position: absolute;
+      top:50%;
+      margin-top:-1.5px;
+}
+.second-hand{
+    height:1px;
+    background:red;
+}
+  </style>
+
+  <script>
+  function ColorNumber(){
+    var hour=document.getElementById("hour");
+    var nimute=document.getElementById("minute");
+    var second=document.getElementById("second");
+    var nowTime=new Date();
+    var nowHour=nowTime.getHours();
+    var nowMinute=nowTime.getMinutes();
+    var nowSecond=nowTime.getSeconds();
+    var hourDeg=(nowMinute/60)*30;
+    var minuteDeg=(nowSecond/60)*6;
+    hour.style.transform="rotate("+ (nowHour * 30+hourDeg +90) + "deg)";
+    /*因为起始的时候在9那个位置 所以加上90度*/
+    minute.style.transform="rotate("+ (nowMinute * 6+ minuteDeg +90) + "deg)";
+    second.style.transform="rotate("+ (nowSecond * 6) + "deg)";/*一个毫秒转六度*/
+}
+ColorNumber();
+setInterval(ColorNumber,1000);
+
+  </script>
+</body>
+</html>

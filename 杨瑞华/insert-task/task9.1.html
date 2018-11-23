@@ -1,0 +1,131 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>task9.2</title>
+    <style>
+        span {
+            display: inline-block;
+            margin: 10px 5px;
+            padding: 0px 10px;
+            background-color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="num" placeholder="请输入10到100的实数">
+    <button id="left-in">左侧入</button>
+    <button id="right-in">右侧入</button>
+    <button id="left-out">左侧出</button>
+    <button id="right-out">右侧出</button>
+    <button id="sort">排序</button>
+    <!--在一个div中创建每个span来储存数值-->
+    <div id="list"></div>
+    <!--javaScript事件-->
+    <script type="text/javascript">
+        /*左侧进入事件*/
+        function leftIn(queue) {
+            var nums = document.getElementById("num").value;
+            /*第二次加入判断来判断是否为10到100实数*/
+            if (judge(nums)) {
+                var span = document.createElement("span")
+                span.style.height = nums; /*将span的高设为num的值*/
+                var spannumber = queue.childNodes;
+                if (spannumber.length > 60) {
+                    alert("队列元素不能超过60个");
+                }
+                else {
+                    queue.insertBefore(span, spannumber[0]);
+                }
+            }
+        }
+        /*右侧进事件*/
+        function rightIn(queue) {
+            var num = document.getElementById("num").value;
+            /*第二次加入判断来判断是否为10到100实数*/
+            if (judge(num)) {
+                var span = document.createElement("span")
+                span.style.height = num;  /*将span的高设为num的值*/
+                var spannumber = queue.childNodes;
+                if (spannumber.length > 60) {
+                    alert("队列元素不能超过60个");
+                }
+                else {
+                    queue.appendChild(span);
+                }
+            }
+        }
+        /*左侧出去事件*/
+        function leftOut(queue) {
+            var childs = queue.childNodes;
+            alert(childs[0].innerHTML);//先显示元素中的数值，因为NodeList具有时效性 
+            queue.removeChild(childs[0]);
+        }
+        /*右侧出去事件*/
+        function rightOut(queue) {
+            var childs = queue.childNodes;
+            alert(childs[childs.length - 1].innerHTML);//先显示元素中的数值，因为NodeList具有时效性 
+            queue.removeChild(childs[childs.length - 1]);
+        }
+
+        /*第二次任务判断输入是否为10到100*/
+        function judge(num) {
+            if (num == "") {
+                alert("输入不能为空！");
+                return false;
+            } else if (num < 10 || num > 100) {
+                alert("输入范围为10到100");
+                return false;
+            } else return true;
+        }
+        /*排序算法（冒泡排序）*/
+        function getsort(queue) {
+            var number = queue.childNodes;
+            for (var i = 0; i < number.length; i++) {
+                for (var j = 0; j < number.length - 1 - i; j++) {
+                    if (number[j].style.height > number[j + 1].style.height) {
+                        var height = number[j].style.height;
+                        number[j].style.height = number[j + 1].style.height;
+                        number[j + 1].style.height = height;
+                    }
+                }
+            }
+        }
+        /*对每个按钮事件添加相应事件*/
+        function start() {
+            var queue = document.getElementById("list");
+            var input = document.getElementById("num");//获取表单元素
+
+            document.getElementById("left-in").onclick = function () {
+                leftIn(queue);
+            };
+            document.getElementById("right-in").onclick = function () {
+                rightIn(queue);
+            };
+            document.getElementById("left-out").onclick = function () {
+                leftOut(queue);
+            };
+            document.getElementById("right-out").onclick = function () {
+                rightOut(queue);
+            };
+
+            document.getElementById("sort").onclick = function () {
+                getsort(queue);
+            };
+           /*点击每个span元素则删除*/
+            document.getElementById("list").onclick = function (e) {
+                e = e || window.event;
+                var t = e.target || e.srcElement;  //t:目标对象
+                var tagName = t.tagName;　//tagName标签名称
+                if (tagName == 'SPAN') {
+                    queue.removeChild(t);
+                }
+            }
+        }
+      start();
+    </script>
+</body>
+
+</html>

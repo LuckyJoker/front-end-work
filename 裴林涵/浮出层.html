@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>UI浮出层</title>
+
+    <style>
+body{
+	height: 1000px;
+	margin:0;
+}
+#btn{
+	margin-top:10px;
+	margin-left: 10px;
+}
+
+.container{
+	width:500px;
+	height:200px;
+	border:1px solid #000;
+	
+	position: fixed;
+	top:50%;
+	left: 50%;
+	margin-top:-100px;
+	margin-left: -250px;
+	z-index: 5;
+	
+}
+.hide{
+	display: none;
+}
+.header{
+	width:500px;
+	height: 30px;
+	border-bottom: 1px solid #000;
+	background-color:#666;
+	line-height: 30px;
+	color:#fff;
+
+	
+}
+.content{
+	height: 109px;
+	padding:30px;
+	background: #fff;
+}
+#ok{
+	position: absolute;
+	bottom: 5px;
+	right: 55px;
+}
+#cancle{
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+#back{
+	background: #000;
+	position: absolute;
+	top:0;
+	left: 0;
+	
+	z-index: 1;
+}
+</style>
+    
+</head>
+<body>
+    <button id="btn" onclick="openNew()">浮出层</button>
+		<div class="container hide" id="container">
+			<div class="header">flowout</div>
+			<div class="content">
+				<span>tip:点击本框以外区域可以关闭本框(取消也能关闭(゜-゜)つロ </span>
+				<button id="ok">确定</button>
+				<button id="cancle">取消</button>
+			</div>
+			
+		</div>
+	</div>
+</body>
+<script>
+ function openNew(){
+	//获取页面的高度和宽度
+	var sWidth=document.body.offsetWidth;
+    var sHeight=document.body.offsetWidth;
+	
+    var back=document.createElement("div");
+    back.id="back";
+        
+    //设置遮罩层的宽度和高度，使页面被完全遮罩。    
+	back.style.height=sHeight+"px";
+    back.style.width=sWidth+"px";
+	back.style.opacity=0.5;    
+    //在页面里插入创建的遮罩层
+    document.body.appendChild(back);
+	
+	//获取模态框的宽和高
+	var container=document.getElementById("container")
+	container.className="container";
+    //点击关闭按钮
+	oClose=document.getElementById("cancle");
+	//点击模态框以外的区域也可以关闭模态框
+    oClose.onclick=back.onclick= function (){
+        document.body.removeChild(back);
+        container.className="container hide";
+    }
+	
+}
+</script>
+</html>
