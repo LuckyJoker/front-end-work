@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="1.css">
+</head>
+<body>
+
+
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">clap</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">boom</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">tink</span>
+    </div>
+  </div>
+
+  <audio data-key="65" src="sounds/clap.wav"></audio>
+  <audio data-key="83" src="sounds/hihat.wav"></audio>
+  <audio data-key="68" src="sounds/kick.wav"></audio>
+  <audio data-key="70" src="sounds/openhat.wav"></audio>
+  <audio data-key="71" src="sounds/boom.wav"></audio>
+  <audio data-key="72" src="sounds/ride.wav"></audio>
+  <audio data-key="74" src="sounds/snare.wav"></audio>
+  <audio data-key="75" src="sounds/tom.wav"></audio>
+  <audio data-key="76" src="sounds/tink.wav"></audio>
+
+<script>
+    //js中获取键盘事件
+    document.onkeydown=function(event){
+        var e = event || window.event ||arguments.callee.caller.arguments[0];
+        //按下的字母事件
+        var zimu = e || e.keyCode;
+        //获取字母部分div
+        var temp1 = document.getElementsByClassName("key");
+        //获取audio
+        var temp2 = document.getElementsByTagName("audio");
+        //判断是否按下的为9个字母中的一个
+        for(var i = 0;i < 9;i++){
+            if(zimu.keyCode == temp1[i].getAttribute("data-key"))
+            {
+                //音频的播放
+                for(var j = 0;j < 9;j++){
+                    if(zimu.keyCode == temp2[j].getAttribute("data-key")){
+                        temp2[j].play();
+                        break;
+                    }
+                }
+                //动画效果
+                temp1[i].classList.add("playing");
+                break;
+            }
+        }
+    }
+    //下面为键盘松开时，变回原样，与上操作基本相同
+    document.onkeyup=function(event){
+        var e = event || window.event ||arguments.callee.caller.arguments[0];
+        //按下的字母事件
+        var zimu = e || e.keyCode;
+        //获取字母部分div
+        var temp1 = document.getElementsByClassName("key");
+        //判断是否按下的为9个字母中的一个
+        for(var i = 0;i < 9;i++){
+            if(zimu.keyCode == temp1[i].getAttribute("data-key"))
+            {
+                temp1[i].className = 'key';
+                break;
+            }
+        }
+    }
+</script>
+
+
+</body>
+</html>
